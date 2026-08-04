@@ -228,6 +228,25 @@
     }
   </style>
 
+
+  <style>
+    .volunteer-bar {
+      width: 100%;
+      margin-top: 18px;
+      padding: 14px 18px;
+      border: 1px solid var(--border, #d9d5cf);
+      border-radius: 10px;
+      background: rgba(127, 127, 127, 0.035);
+      box-sizing: border-box;
+    }
+
+    .volunteer-bar p {
+      margin: 0;
+      text-align: center;
+      line-height: 1.6;
+    }
+  </style>
+
 </head>
 <body>
   <nav class="site-nav">
@@ -464,7 +483,7 @@
     <ul class="edu-list">
       <li class="edu-item">
         <div class="edu-years">Sep. 2023<br/>—<br/>Jun. 2027<br/>(expected)</div>
-        <img class="edu-logo" src="images/papers/consensus.svg" alt="Guangzhou University"
+        <img class="edu-logo" src="images/gzhu.png" alt="Guangzhou University"
              onerror="this.style.display='none'" />
         <div class="edu-content">
           <div class="school">
@@ -514,46 +533,60 @@
 
 <section id="research">
   <h2 class="section-title">Research Projects</h2>
-  <p class="research-summary">My undergraduate research mainly focuses on blockchain systems and distributed network security. I have contributed to protocol design, system implementation, experimental evaluation, and academic publication.</p>
+  <p class="research-summary">My undergraduate research mainly focuses on blockchain systems, Ethereum network measurement, and smart contract security. I have contributed to project planning, protocol analysis, system implementation, experimental deployment, data processing, performance evaluation, and academic writing.</p>
 
   <article class="research-item">
-    <img src="images/papers/consensus.svg" alt="Blockchain consensus">
+    <img src="images/papers/consensus.svg" alt="Blockchain consensus and dynamic membership">
     <div>
       <h3>Blockchain Consensus and Dynamic Membership</h3>
       <p><strong>Research Member · National Key R&amp;D Program-related Project</strong></p>
       <p>Studied validator admission, state synchronization, auditable certification, and Byzantine fault tolerance in blockchain systems with dynamic membership.</p>
       <ul>
-        <li>Participated in membership update, admission control, and synchronous witness mechanism design;</li>
-        <li>Studied traceable validator behavior and forensic evidence generation;</li>
-        <li>Contributed to implementation, formal analysis, and wide-area evaluation.</li>
+        <li>Participated in membership-update, admission-control, and synchronous-witness mechanism design;</li>
+        <li>Studied traceable validator behavior, forensic evidence generation, and audit verification;</li>
+        <li>Contributed to protocol implementation, formal analysis, and wide-area experimental evaluation.</li>
       </ul>
     </div>
   </article>
 
   <article class="research-item">
-    <img src="images/papers/ethereum.svg" alt="Ethereum measurement">
+    <img src="images/papers/discv4.svg" alt="Ethereum Discv4 topology reconstruction">
     <div>
-      <h3>Ethereum P2P Measurement and Topology Reconstruction</h3>
-      <p><strong>Project Leader · Discv4 Topology Reconstruction / Core Member · Discv5 Measurement</strong></p>
-      <p>Focused on Ethereum node discovery, encrypted session analysis, topology reconstruction, and network measurement.</p>
+      <h3>Ethereum Discv4 Online Topology Reconstruction</h3>
+      <p><strong>Project Leader · University-Level Undergraduate Innovation Project</strong></p>
+      <p>Led a project on active Ethereum Discv4 node discovery, online topology reconstruction, graph storage, and experimental validation.</p>
       <ul>
-        <li>Designed the Discv4 measurement architecture and data collection pipeline;</li>
-        <li>Built topology storage and analysis systems using Neo4j and Docker;</li>
-        <li>Analyzed Discv5 handshake procedures and ECDH-based key management.</li>
+        <li>Designed the research plan, system architecture, and data-processing workflow;</li>
+        <li>Implemented node-discovery and topology-reconstruction modules;</li>
+        <li>Used Neo4j for graph storage and analysis, and Docker for private-network validation and deployment.</li>
       </ul>
     </div>
   </article>
 
   <article class="research-item">
-    <img src="images/papers/vulcrosser.svg" alt="Smart contract security">
+    <img src="images/papers/discv5.svg" alt="Ethereum Discv5 measurement">
+    <div>
+      <h3>Ethereum Discv5 Protocol Measurement and Analysis</h3>
+      <p><strong>Core Member · National-Level Undergraduate Innovation Project</strong></p>
+      <p>Worked on encrypted-session analysis, packet parsing, protocol measurement, and topology-reconstruction methods for Ethereum Discv5.</p>
+      <ul>
+        <li>Analyzed Discv5 handshake procedures and session-establishment mechanisms;</li>
+        <li>Studied ECDH-based key management and encrypted packet structures;</li>
+        <li>Used Wireshark and Lua to support packet inspection, parsing, and protocol analysis.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="research-item">
+    <img src="images/papers/vulcrosser.svg" alt="Smart contract security and vulnerability detection">
     <div>
       <h3>Smart Contract Security and Vulnerability Detection</h3>
-      <p><strong>First Author Research Project</strong></p>
-      <p>Developed vulnerability detection methods based on complex network analysis and heterogeneous graph learning for interactive smart-contract scenarios.</p>
+      <p><strong>First-Author Research Project</strong></p>
+      <p>Developed vulnerability-detection methods based on complex-network analysis and heterogeneous graph learning for interactive smart-contract scenarios.</p>
       <ul>
-        <li>Modeled cross-contract calls and state dependencies;</li>
-        <li>Designed graph-based vulnerability representations;</li>
-        <li>Achieved 92.81%–94.87% accuracy across multiple vulnerability detection tasks.</li>
+        <li>Modeled cross-contract calls, state dependencies, and interactive execution relationships;</li>
+        <li>Designed graph-based vulnerability representations and heterogeneous graph-learning components;</li>
+        <li>Achieved 92.81%–94.87% accuracy across three vulnerability-detection tasks.</li>
       </ul>
     </div>
   </article>
@@ -607,7 +640,9 @@
   <h2 class="section-title">Leadership and Service</h2>
   <div class="photo-grid"><figure><img src="images/class-leadership.jpg" alt="Class monitor"><figcaption><strong>Class Monitor</strong><br>Class development and academic culture</figcaption></figure><figure><img src="images/qingma-group.jpg" alt="Young Marxist Training Program"><figcaption><strong>Young Marxist Training Group Leader</strong><br>Theoretical study and practical activities</figcaption></figure><figure><img src="images/party-branch.jpg" alt="Party branch"><figcaption><strong>Party Branch Group Leader</strong><br>Branch activities and routine coordination</figcaption></figure></div>
   <div class="photo-grid"><figure><img src="images/metro-volunteering.jpg" alt="Metro volunteering"><figcaption>Guangzhou Metro volunteer service</figcaption></figure><figure><img src="images/social-practice.png" alt="Social practice"><figcaption>Social practice and team service</figcaption></figure><figure><img src="images/station-volunteering.jpg" alt="Station volunteering"><figcaption>Service-station and campus volunteering</figcaption></figure></div>
-<div class="stat-grid"><div class="stat"><strong>250+</strong>Volunteer Hours</div></div>
+<div class="volunteer-bar">
+  <p><strong>250+ Volunteer Hours</strong> in metro service, campus volunteering, social practice, and community activities.</p>
+</div>
 </section>
 
 <section id="honors">
