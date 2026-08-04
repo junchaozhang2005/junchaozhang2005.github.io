@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity=".22"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity=".04"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" rx="28" fill="#f8fafc"/>
+  <rect x="18" y="18" width="924" height="504" rx="22" fill="url(#g)" stroke="#7c3aed" stroke-opacity=".35"/>
+  <circle cx="118" cy="110" r="46" fill="#7c3aed" fill-opacity=".18"/>
+  <path d="M90 110h56M118 82v56" stroke="#7c3aed" stroke-width="8" stroke-linecap="round"/>
+  <text x="76" y="250" font-family="Arial, sans-serif" font-size="44" font-weight="700" fill="#0f172a">Battery State Estimation</text>
+  <text x="76" y="310" font-family="Arial, sans-serif" font-size="25" fill="#475569">Physics-informed continuous-time modeling</text>
+  <text x="76" y="455" font-family="Arial, sans-serif" font-size="20" fill="#64748b">Placeholder — replace with your own figure when available</text>
+</svg>
