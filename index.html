@@ -88,6 +88,146 @@
   <style>
     [hidden] { display: none !important; }
   </style>
+
+  <style>
+    .edu-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .edu-item {
+      display: grid;
+      grid-template-columns: 120px 72px minmax(0, 1fr);
+      gap: 22px;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .edu-years {
+      text-align: center;
+      line-height: 1.45;
+      font-weight: 600;
+    }
+
+    .edu-logo {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+    }
+
+    .edu-content .school {
+      margin-bottom: 6px;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .edu-content .dept {
+      margin-bottom: 5px;
+    }
+
+    .edu-content .degree {
+      line-height: 1.55;
+    }
+
+    @media (max-width: 640px) {
+      .edu-item {
+        grid-template-columns: 92px 52px minmax(0, 1fr);
+        gap: 12px;
+      }
+
+      .edu-logo {
+        width: 48px;
+        height: 48px;
+      }
+    }
+  </style>
+
+
+  <style>
+    .hero-subtitle {
+      margin: -0.35rem 0 1rem;
+      font-size: 1.08rem;
+      opacity: 0.82;
+    }
+
+    .profile-highlights {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .profile-highlights span {
+      padding: 10px 12px;
+      border: 1px solid var(--border, #d9d5cf);
+      border-radius: 8px;
+      text-align: center;
+      line-height: 1.35;
+    }
+
+    .profile-highlights strong {
+      display: block;
+      font-size: 1.2rem;
+    }
+
+    .research-statement-card {
+      padding: 20px;
+      border: 1px solid var(--border, #d9d5cf);
+      border-radius: 12px;
+    }
+
+    .research-interest-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 18px 0;
+    }
+
+    .research-interest-grid > div {
+      padding: 14px;
+      border-radius: 9px;
+      background: rgba(127, 127, 127, 0.045);
+    }
+
+    .research-interest-grid strong,
+    .research-interest-grid span {
+      display: block;
+    }
+
+    .research-interest-grid span {
+      margin-top: 5px;
+      line-height: 1.5;
+      opacity: 0.85;
+    }
+
+    .advisor-note {
+      margin-bottom: 0;
+      opacity: 0.85;
+    }
+
+    .paper-role {
+      margin: 8px 0;
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+
+    .award-group + .award-group {
+      margin-top: 26px;
+    }
+
+    .award-group h3 {
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 760px) {
+      .profile-highlights,
+      .research-interest-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
 </head>
 <body>
   <nav class="site-nav">
@@ -95,10 +235,12 @@
       <a class="brand" href="./">Junchao Zhang</a>
       <div class="nav-links">
         <a class="section-link" href="#about">About</a>
-<a class="section-link" href="#research">Research</a>
-<a class="section-link" href="#publications">Publications</a>
-<a class="section-link" href="#experience">Experience</a>
-<a class="section-link" href="#honors">Honors</a>
+        <a class="section-link" href="#news">News</a>
+        <a class="section-link" href="#education">Education</a>
+        <a class="section-link" href="#research-statement">Research</a>
+        <a class="section-link" href="#publications">Publications</a>
+        <a class="section-link" href="#honors">Honors</a>
+        <a class="section-link" href="#leadership">Service</a>
         <a class="tool-button" href="zh/">中文</a>
         <button class="tool-button" type="button" data-theme-toggle aria-label="Toggle theme">◐</button>
       </div>
@@ -108,26 +250,32 @@
   <main>
 <section id="about" class="hero">
   <h1>Junchao Zhang</h1>
+  <p class="hero-subtitle">Undergraduate Student in Network Engineering · Guangzhou University</p>
+
   <div class="hero-tags">
-    <span>🎓 Network Engineering @ Guangzhou University</span>
-    <span>🔗 Blockchain & Distributed Systems</span>
+    <span>🔗 Blockchain Systems &amp; Distributed Systems</span>
     <span>🧭 Overall Rank 1/81</span>
+    <span>📊 GPA 3.83/4.00</span>
   </div>
 
   <div class="intro-grid">
     <img class="avatar" src="images/profile.jpg" alt="Junchao Zhang">
     <div class="intro-text">
-      <p>Hi! I am Junchao Zhang, an undergraduate student majoring in Network Engineering at Guangzhou University and the class monitor of the Innovation Class. My average score is <strong>92.32/100</strong>, with a GPA of <strong>3.83/4.00</strong>. I rank <strong>1st out of 81</strong> overall and <strong>2nd out of 81</strong> academically.</p>
-      <p>I joined a research group in my first undergraduate year and gradually moved from literature review and experimental reproduction to protocol design, system implementation, academic writing, and large-scale evaluation. My work spans blockchain consensus, Ethereum P2P measurement, blockchain forensics, smart contract security, Layer-2 scalability, and PoS incentive security.</p>
+      <p>Hi! I am Junchao Zhang, an undergraduate student in Network Engineering at Guangzhou University. I have an average score of <strong>92.32/100</strong>, a GPA of <strong>3.83/4.00</strong>, and rank <strong>1st out of 81</strong> overall and <strong>2nd out of 81</strong> academically.</p>
+      <p>I began research in my first undergraduate year. My work has progressed from literature review and experimental reproduction to protocol design, system implementation, academic writing, and large-scale evaluation. I am especially interested in reliable, scalable, auditable, and verifiable distributed systems under realistic and dynamic conditions.</p>
+
+      <div class="profile-highlights" aria-label="Profile highlights">
+        <span><strong>4</strong> published papers</span>
+        <span><strong>2</strong> manuscripts under review/revision</span>
+        <span><strong>4</strong> invention patent applications</span>
+        <span><strong>2</strong> software copyrights</span>
+      </div>
+
       <div class="contact-row">
         <span class="pill">📍 Guangzhou, China</span>
-        <span class="pill">🏫 Guangzhou University</span>
+        <a class="pill" href="https://www.gzhu.edu.cn/" target="_blank" rel="noopener noreferrer">🏫 Guangzhou University</a>
         <a class="pill" href="mailto:zhangjunchao7109@163.com">✉ zhangjunchao7109@163.com</a>
       </div>
-      <details class="details">
-        <summary>Detailed Profile</summary>
-        <p>I am particularly interested in whether systems remain reliable, scalable, auditable, and verifiable under realistic, complex, and dynamic conditions. My research advisors are Associate Professor Teng Huang and Professor Lingxi Peng at Guangzhou University.</p>
-      </details>
     </div>
   </div>
 </section>
@@ -308,78 +456,185 @@
 
   <hr class="unseen-section-divider" />
 
-<section id="education">
-  <h2 class="section-title">Education</h2>
-  <div class="timeline-item">
-    <div class="timeline-date">Sep. 2023<br>—<br>Present</div>
-    <img class="timeline-logo" src="images/papers/consensus.svg" alt="Guangzhou University placeholder">
-    <div class="timeline-body">
-      <h3>Guangzhou University</h3>
-      <p>School of Computer Science and Cyber Engineering</p>
-      <p>B.Eng. Candidate in Network Engineering · Overall Rank 1/81 · GPA 3.83/4.00</p>
+<!-- ======================================================
+       EDUCATION
+  ====================================================== -->
+  <section id="education">
+    <h2 class="section-title">Education</h2>
+    <ul class="edu-list">
+      <li class="edu-item">
+        <div class="edu-years">Sep. 2023<br/>—<br/>Jun. 2027<br/>(expected)</div>
+        <img class="edu-logo" src="images/papers/consensus.svg" alt="Guangzhou University"
+             onerror="this.style.display='none'" />
+        <div class="edu-content">
+          <div class="school">
+            <a href="https://www.gzhu.edu.cn/" target="_blank" rel="noopener noreferrer">Guangzhou University</a>
+          </div>
+          <div class="dept">
+            <a href="https://jsj.gzhu.edu.cn/" target="_blank" rel="noopener noreferrer">School of Computer Science and Cyber Engineering</a>
+          </div>
+          <div class="degree">B.Eng. Candidate in Network Engineering · Overall Rank 1/81 · GPA 3.83/4.00</div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <hr class="unseen-section-divider" />
+
+<section id="research-statement" class="research-statement-section">
+  <h2 class="section-title">Research Statement</h2>
+  <div class="research-statement-card">
+    <p>I am interested in designing reliable, scalable, and secure distributed systems. My undergraduate research experience focuses on how decentralized systems achieve consistency, efficiency, and auditability under dynamic network environments.</p>
+    <p>Through continuous research training since my first undergraduate year, I have participated in the complete research pipeline, including problem formulation, protocol design, system implementation, experimental deployment, performance evaluation, and academic writing.</p>
+
+    <div class="research-interest-grid">
+      <div>
+        <strong>Blockchain Systems</strong>
+        <span>Consensus mechanisms, dynamic validator membership, blockchain forensics, and auditable verification.</span>
+      </div>
+      <div>
+        <strong>Network Measurement</strong>
+        <span>Ethereum P2P discovery, topology reconstruction, encrypted communication analysis, and large-scale measurement.</span>
+      </div>
+      <div>
+        <strong>Smart Contract Security</strong>
+        <span>Cross-contract vulnerability analysis, dependency modeling, and automated detection methods.</span>
+      </div>
+      <div>
+        <strong>Scalable Distributed Systems</strong>
+        <span>Layer-2 scalability, synchronization mechanisms, and incentive security in decentralized networks.</span>
+      </div>
     </div>
+
+    <p class="advisor-note"><strong>Research Advisor:</strong> Associate Professor <a href="https://jsj.gzhu.edu.cn/info/1907/3272.htm" target="_blank" rel="noopener noreferrer">Teng Huang</a>, Guangzhou University.</p>
   </div>
 </section>
 
+<hr class="unseen-section-divider" />
+
 <section id="research">
-  <h2 class="section-title">Research Experience</h2>
-  <p class="research-summary">My work covers problem formulation, protocol analysis, system implementation, experimental deployment, data processing, performance evaluation, and academic writing. I have contributed to a 114-node Ethereum PoA testbed, a 72-node cross-region cloud environment, and a 200-validator synchronization testbed.</p>
+  <h2 class="section-title">Research Projects</h2>
+  <p class="research-summary">My undergraduate research mainly focuses on blockchain systems and distributed network security. I have contributed to protocol design, system implementation, experimental evaluation, and academic publication.</p>
 
   <article class="research-item">
-    <img src="images/papers/consensus.svg" alt="Dynamic consensus placeholder">
-    <div><h3>Blockchain Consensus, Dynamic Membership, and Forensics</h3><p><strong>Undergraduate Research Member · National Key R&D Program-related Project</strong></p><p>I study validator admission, state synchronization, auditable proofs, and Byzantine fault tolerance under dynamic validator membership.</p><ul><li>Contributed to membership-update, admission, and synchronous-witness mechanisms;</li><li>Studied traceable validator behavior, evidence generation, and audit verification;</li><li>Participated in implementation, formal reasoning, and wide-area evaluation.</li></ul></div>
+    <img src="images/papers/consensus.svg" alt="Blockchain consensus">
+    <div>
+      <h3>Blockchain Consensus and Dynamic Membership</h3>
+      <p><strong>Research Member · National Key R&amp;D Program-related Project</strong></p>
+      <p>Studied validator admission, state synchronization, auditable certification, and Byzantine fault tolerance in blockchain systems with dynamic membership.</p>
+      <ul>
+        <li>Participated in membership update, admission control, and synchronous witness mechanism design;</li>
+        <li>Studied traceable validator behavior and forensic evidence generation;</li>
+        <li>Contributed to implementation, formal analysis, and wide-area evaluation.</li>
+      </ul>
+    </div>
   </article>
 
   <article class="research-item">
-    <img src="images/papers/ethereum.svg" alt="Ethereum measurement placeholder">
-    <div><h3>Ethereum Discv4 / Discv5 Measurement and Topology Reconstruction</h3><p><strong>Discv4 Project Leader · Discv5 Core Member</strong></p><p>I work on online node discovery, encrypted-session analysis, packet parsing, topology reconstruction, and graph-database storage.</p><ul><li>Designed the Discv4 research plan and system architecture;</li><li>Used Neo4j and Docker for topology storage and private-network validation;</li><li>Analyzed Discv5 handshakes and ECDH-based key management with Wireshark and Lua.</li></ul></div>
+    <img src="images/papers/ethereum.svg" alt="Ethereum measurement">
+    <div>
+      <h3>Ethereum P2P Measurement and Topology Reconstruction</h3>
+      <p><strong>Project Leader · Discv4 Topology Reconstruction / Core Member · Discv5 Measurement</strong></p>
+      <p>Focused on Ethereum node discovery, encrypted session analysis, topology reconstruction, and network measurement.</p>
+      <ul>
+        <li>Designed the Discv4 measurement architecture and data collection pipeline;</li>
+        <li>Built topology storage and analysis systems using Neo4j and Docker;</li>
+        <li>Analyzed Discv5 handshake procedures and ECDH-based key management.</li>
+      </ul>
+    </div>
   </article>
 
   <article class="research-item">
-    <img src="images/papers/vulcrosser.svg" alt="VulCrosser">
-    <div><h3>VulCrosser: Cross-Contract Vulnerability Detection</h3><p>I modeled cross-contract calls and state dependencies using dependency graphs and heterogeneous graph neural networks. The model achieved 92.81%–94.87% accuracy across three vulnerability-detection tasks.</p></div>
-  </article>
-
-  <article class="research-item">
-    <img src="images/papers/orion.svg" alt="Orion">
-    <div><h3>Orion: Layer-2 Scalability under Dynamic Networks</h3><p>I contributed to network modeling, protocol implementation, and evaluation using 72 cloud nodes deployed across three geographic regions.</p></div>
-  </article>
-
-  <article class="research-item">
-    <img src="images/papers/positive.svg" alt="PoSitive">
-    <div><h3>PoSitive: Automated Simulation of PoS Incentive Vulnerabilities</h3><p>I contributed to attack-scenario modeling and independently implemented the core reinforcement-learning optimization module. The evaluation covered 9,354 scenarios and approximately 145 hours of simulation.</p></div>
-  </article>
-
-  <article class="research-item">
-    <img src="images/papers/battery.svg" alt="Battery state estimation">
-    <div><h3>Physics-Informed Continuous-Time Battery-State Estimation</h3><p>I derived a charge-conservation ODE model and implemented a low-memory online estimator, achieving 1.13% SOC RMSE on 7,565 real discharge records with O(1) memory and approximately 0.5 ms inference latency.</p></div>
+    <img src="images/papers/vulcrosser.svg" alt="Smart contract security">
+    <div>
+      <h3>Smart Contract Security and Vulnerability Detection</h3>
+      <p><strong>First Author Research Project</strong></p>
+      <p>Developed vulnerability detection methods based on complex network analysis and heterogeneous graph learning for interactive smart-contract scenarios.</p>
+      <ul>
+        <li>Modeled cross-contract calls and state dependencies;</li>
+        <li>Designed graph-based vulnerability representations;</li>
+        <li>Achieved 92.81%–94.87% accuracy across multiple vulnerability detection tasks.</li>
+      </ul>
+    </div>
   </article>
 </section>
 
 <section id="publications">
   <h2 class="section-title">Selected Publications</h2>
-  <article class="paper"><img class="paper-thumb" src="images/papers/battery.svg" alt="Battery paper"><div><h3>An Efficient Physics-Informed Continuous-Time Model for Battery State Estimation under Power-Only Runtime Observability</h3><p class="authors"><strong>Junchao Zhang</strong>, Feng Lian, Yanjie Cai, Shiya Peng, Ying Xie, et al.</p><p class="venue">Journal of Energy Storage, 2026 · JCR Q1</p><div class="buttons"><a class="button" href="https://www.sciencedirect.com/science/article/pii/S2352152X26031920">Paper</a></div></div></article>
-  <article class="paper"><img class="paper-thumb" src="images/papers/vulcrosser.svg" alt="VulCrosser paper"><div><h3>VulCrosser: Smart Contract Vulnerability Detection Based on Complex Network Analysis in Interactive Scenarios</h3><p class="authors"><strong>Junchao Zhang</strong>, Yaohui Zhong, Huanchun Wei, Jiahui Huang, et al.</p><p class="venue">IEEE ICBCTIS, 2025</p><div class="buttons"><a class="button" href="https://ieeexplore.ieee.org/document/11387622">Paper</a></div></div></article>
-  <article class="paper"><img class="paper-thumb" src="images/papers/orion.svg" alt="Orion paper"><div><h3>Orion: A L2 Solution for Scalable Blockchains under Dynamic Network Conditions</h3><p class="authors">Yaohui Zhong, <strong>Junchao Zhang</strong>, Yanjie Cai, Jiahui Huang, et al.</p><p class="venue">IEEE CIS, 2025</p><div class="buttons"><a class="button" href="https://ieeexplore.ieee.org/document/11433893">Paper</a></div></div></article>
-  <article class="paper"><img class="paper-thumb" src="images/papers/positive.svg" alt="PoSitive paper"><div><h3>PoSitive: An Automated and Dynamically Optimized Simulation Framework for Exploring Incentive Vulnerabilities in Proof-of-Stake Consensus</h3><p class="authors">Yanjie Cai, <strong>Junchao Zhang</strong>, Yaohui Zhong, Jiahui Huang, et al.</p><p class="venue">IEEE CIS, 2025</p><div class="buttons"><a class="button" href="https://ieeexplore.ieee.org/document/11433744">Paper</a></div></div></article>
+  <article class="paper"><img class="paper-thumb" src="images/papers/battery.svg" alt="Battery paper"><div><h3>An Efficient Physics-Informed Continuous-Time Model for Battery State Estimation under Power-Only Runtime Observability</h3><p class="authors"><strong>Junchao Zhang</strong>, Feng Lian, Yanjie Cai, Shiya Peng, Ying Xie, et al.</p><p class="venue">Journal of Energy Storage, 2026 · JCR Q1</p><p class="paper-role"><strong>Role:</strong> First Author · Derived the charge-conservation ODE model and implemented the low-memory online estimator.</p><div class="buttons"><a class="button" href="https://www.sciencedirect.com/science/article/pii/S2352152X26031920">Paper</a></div></div></article>
+  <article class="paper"><img class="paper-thumb" src="images/papers/vulcrosser.svg" alt="VulCrosser paper"><div><h3>VulCrosser: Smart Contract Vulnerability Detection Based on Complex Network Analysis in Interactive Scenarios</h3><p class="authors"><strong>Junchao Zhang</strong>, Yaohui Zhong, Huanchun Wei, Jiahui Huang, et al.</p><p class="venue">IEEE ICBCTIS, 2025</p><p class="paper-role"><strong>Role:</strong> First Author · Modeled cross-contract dependencies and contributed to the heterogeneous graph learning framework and evaluation.</p><div class="buttons"><a class="button" href="https://ieeexplore.ieee.org/document/11387622">Paper</a></div></div></article>
+  <article class="paper"><img class="paper-thumb" src="images/papers/orion.svg" alt="Orion paper"><div><h3>Orion: A L2 Solution for Scalable Blockchains under Dynamic Network Conditions</h3><p class="authors">Yaohui Zhong, <strong>Junchao Zhang</strong>, Yanjie Cai, Jiahui Huang, et al.</p><p class="venue">IEEE CIS, 2025</p><p class="paper-role"><strong>Role:</strong> Second Author · Contributed to network modeling, protocol implementation, and evaluation across 72 cloud nodes.</p><div class="buttons"><a class="button" href="https://ieeexplore.ieee.org/document/11433893">Paper</a></div></div></article>
+  <article class="paper"><img class="paper-thumb" src="images/papers/positive.svg" alt="PoSitive paper"><div><h3>PoSitive: An Automated and Dynamically Optimized Simulation Framework for Exploring Incentive Vulnerabilities in Proof-of-Stake Consensus</h3><p class="authors">Yanjie Cai, <strong>Junchao Zhang</strong>, Yaohui Zhong, Jiahui Huang, et al.</p><p class="venue">IEEE CIS, 2025</p><p class="paper-role"><strong>Role:</strong> Second Author · Contributed to attack-scenario modeling and independently implemented the reinforcement-learning optimization module.</p><div class="buttons"><a class="button" href="https://ieeexplore.ieee.org/document/11433744">Paper</a></div></div></article>
+
+  <article class="paper">
+    <img class="paper-thumb" src="images/papers/consensus.svg" alt="DMCP paper">
+    <div>
+      <h3>DMCP: Dynamics-Gated Membership Consensus with Auditable Certification for Blockchain Systems</h3>
+      <p class="authors"><strong>Junchao Zhang</strong>, et al.</p>
+      <p class="venue">Blockchain: Research and Applications · Major Revision</p>
+      <p class="paper-role"><strong>Status:</strong> Under Revision · First Author Manuscript</p>
+    </div>
+  </article>
+
+  <article class="paper">
+    <img class="paper-thumb" src="images/papers/consensus.svg" alt="OSCP paper">
+    <div>
+      <h3>OSCP: Oscillator-Based Synchronization Witness Layer for Blockchain Forensic Auditing with Dynamic Membership</h3>
+      <p class="authors"><strong>Junchao Zhang</strong>, et al.</p>
+      <p class="venue">IEEE Transactions on Information Forensics and Security · Under Review</p>
+      <p class="paper-role"><strong>Status:</strong> Under Review · Student First Author</p>
+    </div>
+  </article>
 </section>
 
 <section id="experience">
-  <h2 class="section-title">Experience and Outcomes</h2>
+  <h2 class="section-title">Additional Experience</h2>
   <article class="feature"><img src="images/seu-visit.jpg" alt="Southeast University"><div><h3>Visiting Study at Southeast University</h3><p>I completed a visiting study experience at the School of Computer Science and Engineering, Southeast University, which broadened my academic perspective and understanding of research systems and practical impact.</p></div></article>
   <article class="feature book"><img src="images/ai-large-model-book.jpg" alt="AI textbook"><div><h3>Textbook Contribution: AI大模型开发实战</h3><p>I contributed as a core member to technical-content organization, practical-case development, example validation, and manuscript refinement.</p></div></article>
-  <div class="stat-grid"><div class="stat"><strong>4</strong>Invention Patent Applications</div><div class="stat"><strong>2</strong>Software Copyrights</div><div class="stat"><strong>250+</strong>Volunteer Hours</div></div>
+  <div class="photo-grid">
+  <figure>
+    <img src="images/patent.jpg" alt="Invention patents">
+    <figcaption><strong>4</strong><br>Invention Patent Applications</figcaption>
+  </figure>
+  <figure>
+    <img src="images/software-copyright.jpg" alt="Software copyrights">
+    <figcaption><strong>2</strong><br>Software Copyrights</figcaption>
+  </figure>
+</div>
 </section>
 
 <section id="leadership">
   <h2 class="section-title">Leadership and Service</h2>
   <div class="photo-grid"><figure><img src="images/class-leadership.jpg" alt="Class monitor"><figcaption><strong>Class Monitor</strong><br>Class development and academic culture</figcaption></figure><figure><img src="images/qingma-group.jpg" alt="Young Marxist Training Program"><figcaption><strong>Young Marxist Training Group Leader</strong><br>Theoretical study and practical activities</figcaption></figure><figure><img src="images/party-branch.jpg" alt="Party branch"><figcaption><strong>Party Branch Group Leader</strong><br>Branch activities and routine coordination</figcaption></figure></div>
   <div class="photo-grid"><figure><img src="images/metro-volunteering.jpg" alt="Metro volunteering"><figcaption>Guangzhou Metro volunteer service</figcaption></figure><figure><img src="images/social-practice.png" alt="Social practice"><figcaption>Social practice and team service</figcaption></figure><figure><img src="images/station-volunteering.jpg" alt="Station volunteering"><figcaption>Service-station and campus volunteering</figcaption></figure></div>
+<div class="stat-grid"><div class="stat"><strong>250+</strong>Volunteer Hours</div></div>
 </section>
 
 <section id="honors">
   <h2 class="section-title">Honors and Awards</h2>
-  <div class="honor-grid"><div class="honor"><strong>National Grand Prize</strong><small>4th Huashu Cup International Mathematical Contest in Modeling</small></div><div class="honor"><strong>National First Prize</strong><small>17th National Undergraduate Electrical and Mathematical Modeling Competition</small></div><div class="honor"><strong>National First Prize</strong><small>6th Huashu Cup National Undergraduate Mathematical Contest in Modeling</small></div><div class="honor"><strong>National Encouragement Scholarship</strong><small>Two consecutive years</small></div><div class="honor"><strong>Top Ten Student</strong><small>University honor</small></div><div class="honor"><strong>Top Ten Class Committee Member</strong><small>Leadership and class development</small></div></div>
+  <div class="honor-banner">
+    <img src="images/honors.jpg" alt="Honors and awards">
+  </div>
+
+  <div class="award-group">
+    <h3>Academic Honors</h3>
+    <div class="honor-grid">
+      <div class="honor"><strong>National Encouragement Scholarship</strong><small>2023–2024 and 2024–2025 academic years</small></div>
+      <div class="honor"><strong>Top Ten Student</strong><small>School of Computer Science and Cyber Engineering</small></div>
+      <div class="honor"><strong>Outstanding Student</strong><small>Guangzhou University · 2024 and 2025</small></div>
+      <div class="honor"><strong>Top Ten Class Committee Member</strong><small>School-level leadership honor</small></div>
+    </div>
+  </div>
+
+  <div class="award-group">
+    <h3>Selected Competition Awards</h3>
+    <div class="honor-grid">
+      <div class="honor"><strong>International Grand Prize</strong><small>4th Huashu Cup International Mathematical Contest in Modeling</small></div>
+      <div class="honor"><strong>National First Prize</strong><small>17th National Undergraduate Electrical and Mathematical Modeling Competition</small></div>
+      <div class="honor"><strong>National First Prize</strong><small>6th Huashu Cup National Undergraduate Mathematical Contest in Modeling</small></div>
+      <div class="honor"><strong>National Second Prize</strong><small>Asia-Pacific Mathematical Contest in Modeling</small></div>
+    </div>
+  </div>
 </section>
 </main>
 
