@@ -1,13 +1,19 @@
-<!doctype html> 
+```html
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Junchao Zhang — Blockchain Systems · Distributed Systems · Network Measurement & Security">
+  <meta name="description" content="Junchao Zhang — Blockchain Systems · Distributed Systems · Network Measurement and Security">
   <title>Junchao Zhang</title>
-  <link rel="stylesheet" href="css/style.css">
+
+  <link rel="stylesheet" href="../css/style.css">
 
   <style>
+    /* ======================================================
+       News
+    ====================================================== */
+
     .news-panel {
       border: 1px solid var(--border, #d9d5cf);
       border-radius: 10px;
@@ -33,13 +39,38 @@
       background: rgba(127, 127, 127, 0.035);
     }
 
+    /*
+      By default, only the first six news items are shown.
+      The seventh item and all subsequent items are hidden.
+    */
+    .news-list .news-item:nth-child(n + 7) {
+      display: none;
+    }
+
+    /*
+      After clicking "Show More",
+      JavaScript adds the expanded class to news-list,
+      displaying all news items.
+    */
+    .news-list.expanded .news-item {
+      display: grid;
+    }
+
     .news-date {
       display: inline-block;
       width: fit-content;
       padding: 2px 8px;
       border: 1px solid var(--border, #d9d5cf);
       border-radius: 4px;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+      font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        Monaco,
+        Consolas,
+        monospace;
+
       font-size: 0.88rem;
       line-height: 1.35;
       white-space: nowrap;
@@ -47,10 +78,8 @@
 
     .news-content {
       line-height: 1.55;
-    }
-
-    .news-hidden {
-      display: none;
+      text-align: justify;
+      text-justify: inter-word;
     }
 
     .news-toggle {
@@ -58,22 +87,20 @@
       width: 100%;
       margin-top: 10px;
       padding: 11px 0 6px;
+
       border: 0;
       border-top: 1px dashed var(--border, #d9d5cf);
+
       background: transparent;
       color: inherit;
       font: inherit;
+
       cursor: pointer;
       opacity: 0.72;
     }
 
     .news-toggle:hover {
       opacity: 1;
-    }
-
-    .unseen-section-divider {
-      border: 0;
-      margin: 0;
     }
 
     @media (max-width: 640px) {
@@ -85,11 +112,24 @@
     }
   </style>
 
-  <style>
-    [hidden] { display: none !important; }
-  </style>
 
   <style>
+    /* ======================================================
+       Section Divider
+    ====================================================== */
+
+    .unseen-section-divider {
+      border: 0;
+      margin: 0;
+    }
+  </style>
+
+
+  <style>
+    /* ======================================================
+       Education
+    ====================================================== */
+
     .edu-list {
       list-style: none;
       margin: 0;
@@ -154,6 +194,10 @@
 
 
   <style>
+    /* ======================================================
+       Hero
+    ====================================================== */
+
     .hero-subtitle {
       margin: -0.35rem 0 1rem;
       font-size: 1.08rem;
@@ -180,39 +224,54 @@
       font-size: 1.2rem;
     }
 
-    .research-statement-card {
-      padding: 20px;
-      border: 1px solid var(--border, #d9d5cf);
-      border-radius: 12px;
+    @media (max-width: 760px) {
+      .profile-highlights {
+        grid-template-columns: 1fr;
+      }
     }
+  </style>
 
-    .research-interest-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      margin: 18px 0;
-    }
 
-    .research-interest-grid > div {
-      padding: 14px;
-      border-radius: 9px;
-      background: rgba(127, 127, 127, 0.045);
-    }
+  <style>
+    /* ======================================================
+       Research Projects
+    ====================================================== */
 
-    .research-interest-grid strong,
-    .research-interest-grid span {
+    #research .research-item {
       display: block;
     }
 
-    .research-interest-grid span {
-      margin-top: 5px;
-      line-height: 1.5;
-      opacity: 0.85;
+    #research .research-item > div {
+      width: 100%;
     }
 
-    .advisor-note {
-      margin-bottom: 0;
-      opacity: 0.85;
+    #research .research-item p,
+    #research .research-item li {
+      text-align: justify;
+      text-justify: inter-word;
+    }
+  </style>
+
+
+  <style>
+    /* ======================================================
+       Publications
+    ====================================================== */
+
+    #publications .paper {
+      display: block;
+    }
+
+    #publications .paper > div {
+      width: 100%;
+    }
+
+    #publications .paper h3,
+    #publications .paper .authors,
+    #publications .paper .venue,
+    #publications .paper .paper-role {
+      text-align: justify;
+      text-justify: inter-word;
     }
 
     .paper-role {
@@ -220,6 +279,58 @@
       line-height: 1.5;
       opacity: 0.9;
     }
+  </style>
+
+
+  <style>
+    /* ======================================================
+       Other Experience
+    ====================================================== */
+
+    #experience .feature p,
+    #experience .feature h3,
+    #experience figcaption {
+      text-align: justify;
+      text-justify: inter-word;
+    }
+  </style>
+
+
+  <style>
+    /* ======================================================
+       Leadership and Volunteering
+    ====================================================== */
+
+    #leadership figcaption,
+    #leadership .volunteer-bar p {
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    .volunteer-bar {
+      width: 100%;
+      margin-top: 18px;
+      padding: 14px 18px;
+
+      border: 1px solid var(--border, #d9d5cf);
+      border-radius: 10px;
+
+      background: rgba(127, 127, 127, 0.035);
+
+      box-sizing: border-box;
+    }
+
+    .volunteer-bar p {
+      margin: 0;
+      line-height: 1.6;
+    }
+  </style>
+
+
+  <style>
+    /* ======================================================
+       Honors and Awards
+    ====================================================== */
 
     .award-group + .award-group {
       margin-top: 26px;
@@ -229,118 +340,6 @@
       margin-bottom: 12px;
     }
 
-    @media (max-width: 760px) {
-      .profile-highlights,
-      .research-interest-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-
-
-  <style>
-    .volunteer-bar {
-      width: 100%;
-      margin-top: 18px;
-      padding: 14px 18px;
-      border: 1px solid var(--border, #d9d5cf);
-      border-radius: 10px;
-      background: rgba(127, 127, 127, 0.035);
-      box-sizing: border-box;
-    }
-
-    .volunteer-bar p {
-      margin: 0;
-      text-align: center;
-      line-height: 1.6;
-    }
-  </style>
-
-
-  <style>
-    #research .research-item {
-      display: block;
-    }
-
-    #research .research-item > div {
-      width: 100%;
-    }
-
-    #publications .paper {
-      display: block;
-    }
-
-    #publications .paper > div {
-      width: 100%;
-    }
-  </style>
-
-
-  <style>
-    #research .research-summary {
-      text-align: justify;
-      text-justify: inter-word;
-    }
-  </style>
-
-
-  <style>
-    /* News */
-    #news .news-content {
-      text-align: justify;
-      text-justify: inter-word;
-    }
-
-    /* Research Statement */
-    #research-statement .research-statement-card > p,
-    #research-statement .research-interest-grid span {
-      text-align: justify;
-      text-justify: inter-word;
-    }
-
-    /* Research Projects */
-    #research .research-summary,
-    #research .research-item p,
-    #research .research-item li {
-      text-align: justify;
-      text-justify: inter-word;
-    }
-
-    /* Selected Publications */
-    #publications .paper h3,
-    #publications .paper .authors,
-    #publications .paper .venue,
-    #publications .paper .paper-role {
-      text-align: justify;
-      text-justify: inter-word;
-    }
-
-    /* Additional Experience */
-    #experience .feature p,
-    #experience .feature h3,
-    #experience figcaption {
-      text-align: justify;
-      text-justify: inter-word;
-    }
-
-    /* Leadership and Service */
-    #leadership figcaption,
-    #leadership .volunteer-bar p {
-      text-align: justify;
-      text-justify: inter-word;
-    }
-
-    /* Honors and Awards */
-    #honors .honor strong,
-    #honors .honor small {
-      display: block;
-      text-align: justify;
-      text-justify: inter-word;
-    }
-  </style>
-
-
-  <style>
     .honor-grid-with-images {
       align-items: stretch;
     }
@@ -354,8 +353,11 @@
       display: block;
       width: 100%;
       height: 190px;
+
       object-fit: contain;
+
       background: rgba(127, 127, 127, 0.025);
+
       border-bottom: 1px solid var(--border, #d9d5cf);
     }
 
@@ -365,6 +367,7 @@
 
     .honor-with-image strong,
     .honor-with-image small {
+      display: block;
       text-align: justify;
       text-justify: inter-word;
     }
@@ -377,492 +380,1744 @@
   </style>
 
 </head>
+
+
 <body>
+
+  <!-- ======================================================
+       Navigation
+  ====================================================== -->
+
   <nav class="site-nav">
+
     <div class="nav-inner">
-      <a class="brand" href="./">Junchao Zhang</a>
+
+      <a class="brand" href="./">
+        Junchao Zhang
+      </a>
+
       <div class="nav-links">
-        <a class="section-link" href="#about">Home</a>
-        <a class="section-link" href="#news">News</a>
-        <a class="section-link" href="#education">Education</a>
-        <a class="section-link" href="#research-statement">Research</a>
-        <a class="section-link" href="#publications">Publications</a>
-        <a class="section-link" href="#leadership">Service</a>
-        <a class="section-link" href="#honors">Honors</a>
-        <a class="tool-button" href="zh/">中文</a>
-        <button class="tool-button" type="button" data-theme-toggle aria-label="Toggle theme">◐</button>
+
+        <a class="section-link" href="#about">
+          Home
+        </a>
+
+        <a class="section-link" href="#news">
+          News
+        </a>
+
+        <a class="section-link" href="#education">
+          Education
+        </a>
+
+        <a class="section-link" href="#research">
+          Research
+        </a>
+
+        <a class="section-link" href="#publications">
+          Publications
+        </a>
+
+        <a class="section-link" href="#leadership">
+          Service
+        </a>
+
+        <a class="section-link" href="#honors">
+          Honors
+        </a>
+
+        <a class="tool-button" href="./zh/">
+          中文
+        </a>
+
+        <button
+          class="tool-button"
+          type="button"
+          data-theme-toggle
+          aria-label="Toggle theme"
+        >
+          ◐
+        </button>
+
       </div>
+
     </div>
+
   </nav>
 
+
   <main>
-<section id="about" class="hero">
-  <h1>Junchao Zhang</h1>
-  <p class="hero-subtitle">Undergraduate Student in Network Engineering · Guangzhou University</p>
 
-  <div class="hero-tags">
-    <span>🔗 Blockchain Systems &amp; Distributed Systems</span>
-    <span>🧭 Overall Rank 1/81</span>
-    <span>📊 GPA 3.83/4.00</span>
-  </div>
+    <!-- ======================================================
+         Home
+    ====================================================== -->
 
-  <div class="intro-grid">
-    <img class="avatar" src="images/profile.jpg" alt="Junchao Zhang">
-    <div class="intro-text">
-      <p>Hi! I am Junchao Zhang, an undergraduate student in Network Engineering at Guangzhou University. I have an average score of <strong>92.32/100</strong>, a GPA of <strong>3.83/4.00</strong>, and rank <strong>1st out of 81</strong> overall and <strong>2nd out of 81</strong> academically.</p>
-      <p>I began research in my first undergraduate year. My work has progressed from literature review and experimental reproduction to protocol design, system implementation, academic writing, and large-scale evaluation. I am especially interested in reliable, scalable, auditable, and verifiable distributed systems under realistic and dynamic conditions.</p>
+    <section id="about" class="hero">
 
-      <div class="profile-highlights" aria-label="Profile highlights">
-        <span><strong>4</strong> published papers</span>
-        <span><strong>2</strong> manuscripts under review/revision</span>
-        <span><strong>4</strong> invention patent applications</span>
-        <span><strong>2</strong> software copyrights</span>
+      <h1>
+        Junchao Zhang
+      </h1>
+
+      <p class="hero-subtitle">
+        Undergraduate Student in Network Engineering at Guangzhou University
+      </p>
+
+
+      <div class="hero-tags">
+
+        <span>
+          🔗 Blockchain & Distributed Systems
+        </span>
+      
+        <span>
+          🔬 Network Measurement & System Security
+        </span>
+      
+        <span>
+          🏅 Overall Rank 1/81
+        </span>
+      
       </div>
 
-      <div class="contact-row">
-        <span class="pill">📍 Guangzhou, China</span>
-        <a class="pill" href="https://www.gzhu.edu.cn/" target="_blank" rel="noopener noreferrer">🏫 Guangzhou University</a>
-        <a class="pill" href="mailto:zhangjunchao7109@163.com">✉ zhangjunchao7109@163.com</a>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ======================================================
-       NEWS
-  ====================================================== -->
-  <section id="news">
-    <h2 class="section-title">News</h2>
 
-    <!-- Photo strip -->
-    <!-- <div class="news-photos">
-      Add optional news photos here.
-    </div> -->
+      <div class="intro-grid">
 
-    <div class="news-panel">
-    <ul class="news-list" id="news-list">
-      <li class="news-item">
-        <span class="news-date">07/2026</span>
-        <span class="news-content">Our first-author paper, <em>An Efficient Physics-Informed Continuous-Time Model for Battery State Estimation under Power-Only Runtime Observability</em>, was published in <strong>Journal of Energy Storage</strong> (JCR Q1, CAS Tier 2 Top, IF 10.7).</span>
-      </li>
-      <li class="news-item">
-        <span class="news-date">06/2026</span>
-        <span class="news-content">A third invention patent application, on multimodal industrial defect detection using mixed-text template prompts, entered substantive examination (Application No. 202610367519.6).</span>
-      </li>
-      <li class="news-item">
-        <span class="news-date">04/2026</span>
-        <span class="news-content">The software system <em>Intelligent Municipal-Waste Transportation Management System V1.0</em> was granted a computer software copyright (Registration No. 2026SR0569063).</span>
-      </li>
-      <li class="news-item">
-        <span class="news-date">04/2026</span>
-        <span class="news-content">The software system <em>PyQt5-Based Intelligent Algorithm and Machine-Learning Visualization Experimental System V1.0</em> was granted a computer software copyright (Registration No. 2026SR0581109).</span>
-      </li>
-      <li class="news-item">
-        <span class="news-date">04/2026</span>
-        <span class="news-content">Our first-author manuscript <em>DMCP: Dynamics-Gated Membership Consensus with Auditable Certification for Blockchain Systems</em> was resubmitted to <strong>Blockchain: Research and Applications</strong> after major revision.</span>
-      </li>
-      <li class="news-item">
-        <span class="news-date">03/2026</span>
-        <span class="news-content">Our student-first-author manuscript <em>OSCP: Oscillator-Based Synchronization Witness Layer for Blockchain Forensic Auditing with Dynamic Membership</em> was under review at <strong>IEEE Transactions on Information Forensics and Security</strong>.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">02/2026</span>
-        <span class="news-content">Won the International Grand Prize in the 4th Huashu Cup International Mathematical Contest in Modeling as team leader and primary contributor for a study on assessing and optimizing AI development capability using ridge regression.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">12/2025</span>
-        <span class="news-content">Our first-author paper <em>VulCrosser: Smart Contract Vulnerability Detection Based on Complex Network Analysis in Interactive Scenarios</em> was published at IEEE ICBCTIS 2025.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">12/2025</span>
-        <span class="news-content">Our paper <em>Orion: A L2 Solution for Scalable Blockchains under Dynamic Network Conditions</em> was published at IEEE CIS 2025.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">12/2025</span>
-        <span class="news-content">Our paper <em>PoSitive: An Automated and Dynamically Optimized Simulation Framework for Exploring Incentive Vulnerabilities in Proof-of-Stake Consensus</em> was published at IEEE CIS 2025.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">12/2025</span>
-        <span class="news-content">Won the Guangdong Division Provincial Third Prize in the National Undergraduate Mathematical Modeling Competition for work on abnormality detection in time-point selection and furnace-temperature rise.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">12/2025</span>
-        <span class="news-content">Received the National Encouragement Scholarship for the 2024–2025 academic year.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">11/2025</span>
-        <span class="news-content">Won the National Third Prize in the Asia and Pacific Mathematical Contest in Modeling for <em>Tariff Policy Impact Analysis: Global Trade Network Equilibrium Model</em>.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">11/2025</span>
-        <span class="news-content">Received the Guangzhou University Outstanding Student honor.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">10/2025</span>
-        <span class="news-content">Won the Guangdong Provincial Third Prize in the National Digital Media Technology Works and Creative Competition for a Guangzhou housing-price data visualization and analysis platform.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">09/2025</span>
-        <span class="news-content">Won the Guangdong Provincial Third Prize in the University Statistical Survey and Modeling Competition for a survey of traditional Chinese medicine dietary-consumption intentions from the perspective of integrated commercial districts.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">09/2025</span>
-        <span class="news-content">Began serving as a student Party branch group leader, assisting with theoretical study, Party-member activities, organizational development, and the operation of the WeChat public account “GZHU Computer Pioneer”.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">08/2025</span>
-        <span class="news-content">Won the National First Prize in the 6th Huashu Cup National Undergraduate Mathematical Contest in Modeling for research on GPU-accelerated PSO optimization of LED circadian-lighting control strategies.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">07/2025</span>
-        <span class="news-content">Won the National First Prize in the 17th National Undergraduate Electrical and Mathematical Modeling Competition for K-means- and ALNS-based waste-classification transportation-route optimization.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">07/2025</span>
-        <span class="news-content">Won the National Second Prize in APMCM for multimodel chronic-disease prediction and comorbidity analysis driven by Bayesian networks.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">07/2025</span>
-        <span class="news-content">Was selected as one of the Top Ten Students of the School of Computer Science and Cyber Engineering.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">07/2025</span>
-        <span class="news-content">Two invention patent applications concerning Ethereum online-topology reconstruction entered substantive examination (Application Nos. 202510191304.9 and 202510219359.6).</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">06/2025</span>
-        <span class="news-content">Won the Regional Third Prize in the 15th MathorCup Mathematical Modeling Challenge for multiobjective mixed-integer programming of short-haul freight scheduling.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">06/2025</span>
-        <span class="news-content">Won the Undergraduate Third Prize in the Guangdong Division of the 13th Taidi Cup Data Mining Challenge for wearable-device-based physical-activity monitoring.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">05/2025</span>
-        <span class="news-content">Was recognized as an Outstanding Communist Youth League Cadre of Guangzhou University.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">03/2025</span>
-        <span class="news-content">Started leading a university-level undergraduate innovation project on Ethereum Discv4 online topology reconstruction.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">03/2025</span>
-        <span class="news-content">Joined a national-level undergraduate innovation project on Ethereum Discv5 online topology reconstruction as a core member.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">12/2024</span>
-        <span class="news-content">Received the National Encouragement Scholarship for the 2023–2024 academic year.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">12/2024</span>
-        <span class="news-content">Received the Guangzhou University Outstanding Student honor.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">12/2024</span>
-        <span class="news-content">The Network Engineering Class 231 was recognized as an Excellent Academic-Style Class; I served as class monitor.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">12/2024</span>
-        <span class="news-content">Was recognized as an Advanced Individual in Moral Cultivation.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">09/2024</span>
-        <span class="news-content">Was selected as one of the Top Ten Class Committee Members of the School of Computer Science and Cyber Engineering.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">05/2024</span>
-        <span class="news-content">Was recognized as an Outstanding Communist Youth League Member of Guangzhou University.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">05/2024</span>
-        <span class="news-content">Joined a National Key R&amp;D Program-related blockchain research project, contributing to dynamic-membership consensus, blockchain forensic auditing, smart-contract security, Layer-2 scalability, and PoS incentive-vulnerability simulation.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">04/2024</span>
-        <span class="news-content">Was recognized as an Active Participant in Library Labor-Education Practice.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">12/2023</span>
-        <span class="news-content">Began serving as a Young Marxist Training Program group leader, organizing theoretical study, material collection, group practice, and themed activities.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">11/2023</span>
-        <span class="news-content">Passed the Putonghua Proficiency Test at Level 2-A.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">09/2023</span>
-        <span class="news-content">Began serving as class monitor of the Network Engineering Innovation Class, responsible for routine class management, academic culture, activity organization, and coordination with counselors and the head teacher.</span>
-      </li>
-      <li class="news-item news-hidden" hidden>
-        <span class="news-date">09/2023</span>
-        <span class="news-content">Was recognized as an Active Participant in the 2023 Freshman Military Training Program.</span>
-      </li>
-    </ul>
-    <button class="news-toggle" id="news-toggle-btn" type="button" aria-expanded="false">Show more ▾</button>
-    </div>
-  </section>
+        <img
+          class="avatar"
+          src="../images/profile.jpg"
+          alt="Junchao Zhang"
+        >
 
-  <hr class="unseen-section-divider" />
 
-<!-- ======================================================
-       EDUCATION
-  ====================================================== -->
-  <section id="education">
-    <h2 class="section-title">Education</h2>
-    <ul class="edu-list">
-      <li class="edu-item">
-        <div class="edu-years">Sep. 2023<br/>—<br/>Jun. 2027<br/>(expected)</div>
-        <img class="edu-logo" src="images/certificates/gzhu-logo.png" alt="Guangzhou University" />
-        <div class="edu-content">
-          <div class="school">
-            <a href="https://www.gzhu.edu.cn/" target="_blank" rel="noopener noreferrer">Guangzhou University</a>
+        <div class="intro-text">
+
+          <p>
+            Hello! I am Junchao Zhang, currently an undergraduate student
+            majoring in Network Engineering at Guangzhou University.
+            My average score is
+            <strong>92.32/100</strong>,
+            with a GPA of
+            <strong>3.83/4.00</strong>.
+            I rank
+            <strong>1/81</strong>
+            overall and
+            <strong>2/81</strong>
+            academically in my major.
+          </p>
+
+
+          <p>
+            During my undergraduate studies, I have actively participated in
+            research training and academic projects, gradually gaining experience
+            in literature review, problem analysis, solution design, system
+            implementation, experimental evaluation, and academic writing.
+            Through these experiences, I have continued to strengthen my
+            independent thinking and problem-solving abilities while developing
+            a clear interest in pursuing further study and research. Looking
+            ahead, I hope to further consolidate my technical foundations,
+            broaden my academic perspective, and continue exploring research
+            topics that genuinely interest me.
+          </p>
+
+
+          <div
+            class="profile-highlights"
+            aria-label="Research Profile"
+          >
+
+            <span>
+              <strong>4</strong>
+              Published Papers
+            </span>
+
+            <span>
+              <strong>2</strong>
+              Under Review / Revision
+            </span>
+
+            <span>
+              <strong>4</strong>
+              Invention Patents under Substantive Examination
+            </span>
+
+            <span>
+              <strong>2</strong>
+              Software Copyrights
+            </span>
+
           </div>
-          <div class="dept">
-            <a href="https://jsj.gzhu.edu.cn/" target="_blank" rel="noopener noreferrer">School of Computer Science and Cyber Engineering</a>
+
+
+          <div class="contact-row">
+
+            <span class="pill">
+              📍 Guangzhou, China
+            </span>
+
+            <a
+              class="pill"
+              href="https://www.gzhu.edu.cn/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              🏫 Guangzhou University
+            </a>
+
+            <a
+              class="pill"
+              href="mailto:zhangjunchao7109@163.com"
+            >
+              ✉ zhangjunchao7109@163.com
+            </a>
+
           </div>
-          <div class="degree">B.Eng. Candidate in Network Engineering · Overall Rank 1/81 · GPA 3.83/4.00</div>
+
         </div>
-      </li>
-    </ul>
-  </section>
 
-  <hr class="unseen-section-divider" />
-
-<section id="research-statement" class="research-statement-section">
-  <h2 class="section-title">Research Statement</h2>
-  <div class="research-statement-card">
-    <p>I am interested in designing reliable, scalable, and secure distributed systems. My undergraduate research experience focuses on how decentralized systems achieve consistency, efficiency, and auditability under dynamic network environments.</p>
-    <p>Through continuous research training since my first undergraduate year, I have participated in the complete research pipeline, including problem formulation, protocol design, system implementation, experimental deployment, performance evaluation, and academic writing.</p>
-
-    <div class="research-interest-grid">
-      <div>
-        <strong>Blockchain Systems</strong>
-        <span>Consensus mechanisms, dynamic validator membership, blockchain forensics, and auditable verification.</span>
       </div>
-      <div>
-        <strong>Network Measurement</strong>
-        <span>Ethereum P2P discovery, topology reconstruction, encrypted communication analysis, and large-scale measurement.</span>
+
+    </section>
+
+
+    <!-- ======================================================
+         News
+    ====================================================== -->
+
+    <section id="news">
+
+      <h2 class="section-title">
+        News
+      </h2>
+
+
+      <div class="news-panel">
+
+        <ul
+          class="news-list"
+          id="news-list"
+        >
+
+          <!-- 1 -->
+
+          <li class="news-item">
+
+            <span class="news-date">
+              07/2026
+            </span>
+
+            <span class="news-content">
+
+              <em>
+                An Efficient Physics-Informed Continuous-Time Model for Battery State Estimation under Power-Only Runtime Observability
+              </em>
+
+              was published in
+
+              <strong>
+                Journal of Energy Storage
+              </strong>
+
+              (JCR Q1, CAS Q2 Top, IF 10.7).
+
+            </span>
+
+          </li>
+
+
+          <!-- 2 -->
+
+          <li class="news-item">
+
+            <span class="news-date">
+              04/2026
+            </span>
+
+            <span class="news-content">
+
+              <em>
+                Intelligent Urban Waste Transportation Management System V1.0
+              </em>
+
+              was granted software copyright registration.
+
+            </span>
+
+          </li>
+
+
+          <!-- 3 -->
+
+          <li class="news-item">
+
+            <span class="news-date">
+              04/2026
+            </span>
+
+            <span class="news-content">
+
+              <em>
+                PyQt5-Based Intelligent Algorithms and Machine Learning Visualization Experiment System V1.0
+              </em>
+
+              was granted software copyright registration.
+
+            </span>
+
+          </li>
+
+
+          <!-- 4 -->
+
+          <li class="news-item">
+
+            <span class="news-date">
+              02/2026
+            </span>
+
+            <span class="news-content">
+
+              Served as team leader in the Fourth Huashu Cup International
+              Mathematical Contest in Modeling and received the International
+              Grand Prize.
+
+            </span>
+
+          </li>
+
+
+          <!-- 5 -->
+
+          <li class="news-item">
+
+            <span class="news-date">
+              12/2025
+            </span>
+
+            <span class="news-content">
+
+              <em>
+                VulCrosser: Smart Contract Vulnerability Detection Based on Complex Network Analysis in Interactive Scenarios
+              </em>
+
+              was published at IEEE ICBCTIS 2025.
+
+            </span>
+
+          </li>
+
+
+          <!-- 6 -->
+
+          <li class="news-item">
+
+            <span class="news-date">
+              12/2025
+            </span>
+
+            <span class="news-content">
+
+              <em>
+                Orion: A L2 Solution for Scalable Blockchains under Dynamic Network Conditions
+              </em>
+
+              was published at IEEE CIS 2025.
+
+            </span>
+
+          </li>
+
+
+          <!-- =================================================
+               Starting from item 7, news entries are hidden
+               by default through CSS.
+          ================================================== -->
+
+
+          <!-- 7 -->
+
+          <li class="news-item">
+
+            <span class="news-date">
+              12/2025
+            </span>
+
+            <span class="news-content">
+
+              <em>
+                PoSitive: An Automated and Dynamically Optimized Simulation Framework for Exploring Incentive Vulnerabilities in Proof-of-Stake Consensus
+              </em>
+
+              was published at IEEE CIS 2025.
+
+            </span>
+
+          </li>
+
+
+          <!-- 8 -->
+
+          <li class="news-item">
+
+            <span class="news-date">
+              12/2025
+            </span>
+
+            <span class="news-content">
+
+              Received the 2024–2025 National Encouragement Scholarship.
+
+            </span>
+
+          </li>
+
+
+          <!-- 9 -->
+
+          <li class="news-item">
+
+            <span class="news-date">
+              11/2025
+            </span>
+
+            <span class="news-content">
+
+              Served as team leader in the Asia-Pacific Mathematical Contest
+              in Modeling and received the National Third Prize.
+
+            </span>
+
+          </li>
+
+
+          <!-- 10 -->
+
+          <li class="news-item">
+
+            <span class="news-date">
+              08/2025
+            </span>
+
+            <span class="news-content">
+
+              Served as team leader in the Sixth Huashu Cup National
+              Mathematical Contest in Modeling and received the National First
+              Prize.
+
+            </span>
+
+          </li>
+
+
+          <!-- 11 -->
+
+          <li class="news-item">
+
+            <span class="news-date">
+              07/2025
+            </span>
+
+            <span class="news-content">
+
+              Served as team leader in the 17th National Undergraduate
+              Electrical Mathematical Modeling Competition and received the
+              National First Prize.
+
+            </span>
+
+          </li>
+
+
+          <!-- 12 -->
+
+          <li class="news-item">
+
+            <span class="news-date">
+              07/2025
+            </span>
+
+            <span class="news-content">
+
+              Served as team leader in the Asia-Pacific Mathematical Contest
+              in Modeling and received the National Second Prize.
+
+            </span>
+
+          </li>
+
+
+          <!-- 13 -->
+
+          <li class="news-item">
+
+            <span class="news-date">
+              07/2025
+            </span>
+
+            <span class="news-content">
+
+              Selected as one of the Top Ten Students of the School of Computer
+              Science and Cyber Engineering at Guangzhou University.
+
+            </span>
+
+          </li>
+
+
+          <!-- 14 -->
+
+          <li class="news-item">
+
+            <span class="news-date">
+              03/2025
+            </span>
+
+            <span class="news-content">
+
+              Began leading a university-level Undergraduate Innovation Training
+              Project on online Ethereum Discv4 topology reconstruction.
+
+            </span>
+
+          </li>
+
+
+          <!-- 15 -->
+
+          <li class="news-item">
+
+            <span class="news-date">
+              03/2025
+            </span>
+
+            <span class="news-content">
+
+              Joined a national-level Undergraduate Innovation Training Project
+              as a core member, focusing on online Ethereum Discv5 topology
+              reconstruction.
+
+            </span>
+
+          </li>
+
+
+          <!-- 16 -->
+
+          <li class="news-item">
+
+            <span class="news-date">
+              12/2024
+            </span>
+
+            <span class="news-content">
+
+              Received the 2023–2024 National Encouragement Scholarship.
+
+            </span>
+
+          </li>
+
+
+          <!-- 17 -->
+
+          <li class="news-item">
+
+            <span class="news-date">
+              05/2024
+            </span>
+
+            <span class="news-content">
+
+              Joined a blockchain research project related to the National Key
+              R&D Program and began conducting research on blockchain systems,
+              network measurement, and security.
+
+            </span>
+
+          </li>
+
+        </ul>
+
+
+        <button
+          class="news-toggle"
+          id="news-toggle-btn"
+          type="button"
+          aria-expanded="false"
+        >
+          Show More ▾
+        </button>
+
       </div>
-      <div>
-        <strong>Smart Contract Security</strong>
-        <span>Cross-contract vulnerability analysis, dependency modeling, and automated detection methods.</span>
-      </div>
-      <div>
-        <strong>Scalable Distributed Systems</strong>
-        <span>Layer-2 scalability, synchronization mechanisms, and incentive security in decentralized networks.</span>
-      </div>
-    </div>
 
-    <p class="advisor-note"><strong>Research Advisor:</strong> Associate Professor <a href="https://jsj.gzhu.edu.cn/info/1907/3272.htm" target="_blank" rel="noopener noreferrer">Teng Huang</a>, Guangzhou University.</p>
-  </div>
-</section>
+    </section>
 
-<hr class="unseen-section-divider" />
 
-<section id="research">
-  <h2 class="section-title">Research Projects</h2>
-  <p class="research-summary">My undergraduate research mainly focuses on blockchain systems, Ethereum network measurement, and smart contract security. I have contributed to project planning, protocol analysis, system implementation, experimental deployment, data processing, performance evaluation, and academic writing.</p>
+    <hr class="unseen-section-divider">
 
-  <article class="research-item">
-    
-    <div>
-      <h3>Blockchain Consensus and Dynamic Membership</h3>
-      <p><strong>Research Member · National Key R&amp;D Program-related Project</strong></p>
-      <p>Studied validator admission, state synchronization, auditable certification, and Byzantine fault tolerance in blockchain systems with dynamic membership.</p>
-      <ul>
-        <li>Participated in membership-update, admission-control, and synchronous-witness mechanism design;</li>
-        <li>Studied traceable validator behavior, forensic evidence generation, and audit verification;</li>
-        <li>Contributed to protocol implementation, formal analysis, and wide-area experimental evaluation.</li>
+
+    <!-- ======================================================
+         Education
+    ====================================================== -->
+
+    <section id="education">
+
+      <h2 class="section-title">
+        Education
+      </h2>
+
+
+      <ul class="edu-list">
+
+        <li class="edu-item">
+
+          <div class="edu-years">
+
+            Sep. 2023
+
+            <br>
+
+            —
+
+            <br>
+
+            Jun. 2027
+
+            <br>
+
+            (Expected)
+
+          </div>
+
+
+          <img
+            class="edu-logo"
+            src="../images/certificates/gzhu-logo.png"
+            alt="Guangzhou University"
+          >
+
+
+          <div class="edu-content">
+
+            <div class="school">
+
+              <a
+                href="https://www.gzhu.edu.cn/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Guangzhou University
+              </a>
+
+            </div>
+
+
+            <div class="dept">
+
+              <a
+                href="https://jsj.gzhu.edu.cn/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                School of Computer Science and Cyber Engineering
+              </a>
+
+            </div>
+
+
+            <div class="degree">
+
+              B.Eng. Candidate in Network Engineering ·
+              Overall Rank 1/81 ·
+              GPA 3.83/4.00
+
+            </div>
+
+          </div>
+
+        </li>
+
       </ul>
-    </div>
-  </article>
 
-  <article class="research-item">
-    <div>
-      <h3>Ethereum Discv4 Online Topology Reconstruction</h3>
-      <p><strong>Project Leader · University-Level Undergraduate Innovation Project</strong></p>
-      <p>Led a project on active Ethereum Discv4 node discovery, online topology reconstruction, graph storage, and experimental validation.</p>
-      <ul>
-        <li>Designed the research plan, system architecture, and data-processing workflow;</li>
-        <li>Implemented node-discovery and topology-reconstruction modules;</li>
-        <li>Used Neo4j for graph storage and analysis, and Docker for private-network validation and deployment.</li>
-      </ul>
-    </div>
-  </article>
+    </section>
 
-  <article class="research-item">
-    <div>
-      <h3>Ethereum Discv5 Protocol Measurement and Analysis</h3>
-      <p><strong>Core Member · National-Level Undergraduate Innovation Project</strong></p>
-      <p>Worked on encrypted-session analysis, packet parsing, protocol measurement, and topology-reconstruction methods for Ethereum Discv5.</p>
-      <ul>
-        <li>Analyzed Discv5 handshake procedures and session-establishment mechanisms;</li>
-        <li>Studied ECDH-based key management and encrypted packet structures;</li>
-        <li>Used Wireshark and Lua to support packet inspection, parsing, and protocol analysis.</li>
-      </ul>
-    </div>
-  </article>
 
-  <article class="research-item">
-    <div>
-      <h3>Smart Contract Security and Vulnerability Detection</h3>
-      <p><strong>First-Author Research Project</strong></p>
-      <p>Developed vulnerability-detection methods based on complex-network analysis and heterogeneous graph learning for interactive smart-contract scenarios.</p>
-      <ul>
-        <li>Modeled cross-contract calls, state dependencies, and interactive execution relationships;</li>
-        <li>Designed graph-based vulnerability representations and heterogeneous graph-learning components;</li>
-        <li>Achieved 92.81%–94.87% accuracy across three vulnerability-detection tasks.</li>
-      </ul>
-    </div>
-  </article>
-</section>
+    <hr class="unseen-section-divider">
 
-<section id="publications">
-  <h2 class="section-title">Selected Publications</h2>
-  <article class="paper"><div><h3>An Efficient Physics-Informed Continuous-Time Model for Battery State Estimation under Power-Only Runtime Observability</h3><p class="authors"><strong>Junchao Zhang</strong>, Feng Lian, Yanjie Cai, Shiya Peng, Ying Xie, et al.</p><p class="venue">Journal of Energy Storage, 2026 · JCR Q1</p><p class="paper-role"><strong>Role:</strong> First Author · Derived the charge-conservation ODE model and implemented the low-memory online estimator.</p><div class="buttons"><a class="button" href="https://www.sciencedirect.com/science/article/pii/S2352152X26031920">Paper</a></div></div></article>
-  <article class="paper"><div><h3>VulCrosser: Smart Contract Vulnerability Detection Based on Complex Network Analysis in Interactive Scenarios</h3><p class="authors"><strong>Junchao Zhang</strong>, Yaohui Zhong, Huanchun Wei, Jiahui Huang, et al.</p><p class="venue">IEEE ICBCTIS, 2025</p><p class="paper-role"><strong>Role:</strong> First Author · Modeled cross-contract dependencies and contributed to the heterogeneous graph learning framework and evaluation.</p><div class="buttons"><a class="button" href="https://ieeexplore.ieee.org/document/11387622">Paper</a></div></div></article>
-  <article class="paper"><div><h3>Orion: A L2 Solution for Scalable Blockchains under Dynamic Network Conditions</h3><p class="authors">Yaohui Zhong, <strong>Junchao Zhang</strong>, Yanjie Cai, Jiahui Huang, et al.</p><p class="venue">IEEE CIS, 2025</p><p class="paper-role"><strong>Role:</strong> Second Author · Contributed to network modeling, protocol implementation, and evaluation across 72 cloud nodes.</p><div class="buttons"><a class="button" href="https://ieeexplore.ieee.org/document/11433893">Paper</a></div></div></article>
-  <article class="paper"><div><h3>PoSitive: An Automated and Dynamically Optimized Simulation Framework for Exploring Incentive Vulnerabilities in Proof-of-Stake Consensus</h3><p class="authors">Yanjie Cai, <strong>Junchao Zhang</strong>, Yaohui Zhong, Jiahui Huang, et al.</p><p class="venue">IEEE CIS, 2025</p><p class="paper-role"><strong>Role:</strong> Second Author · Contributed to attack-scenario modeling and independently implemented the reinforcement-learning optimization module.</p><div class="buttons"><a class="button" href="https://ieeexplore.ieee.org/document/11433744">Paper</a></div></div></article>
 
-  <article class="paper"><div>
-      <h3>DMCP: Dynamics-Gated Membership Consensus with Auditable Certification for Blockchain Systems</h3>
-      <p class="authors"><strong>Junchao Zhang</strong>, et al.</p>
-      <p class="venue">Blockchain: Research and Applications · Major Revision</p>
-      <p class="paper-role"><strong>Status:</strong> Under Revision · First Author Manuscript</p>
-    </div>
-  </article>
+    <!-- ======================================================
+         Research Projects
+    ====================================================== -->
 
-  <article class="paper"><div>
-      <h3>OSCP: Oscillator-Based Synchronization Witness Layer for Blockchain Forensic Auditing with Dynamic Membership</h3>
-      <p class="authors"><strong>Junchao Zhang</strong>, et al.</p>
-      <p class="venue">IEEE Transactions on Information Forensics and Security · Under Review</p>
-      <p class="paper-role"><strong>Status:</strong> Under Review · Student First Author</p>
-    </div>
-  </article>
-</section>
+    <section id="research">
 
-<section id="experience">
-  <h2 class="section-title">Additional Experience</h2>
-  <article class="feature"><img src="images/seu-visit.jpg" alt="Southeast University"><div><h3>Visiting Study at Southeast University</h3><p>I completed a visiting study experience at the School of Computer Science and Engineering, Southeast University, which broadened my academic perspective and understanding of research systems and practical impact.</p></div></article>
-  <article class="feature book"><img src="images/ai-large-model-book.jpg" alt="AI textbook"><div><h3>Textbook Contribution: AI大模型开发实战</h3><p>I contributed as a core member to technical-content organization, practical-case development, example validation, and manuscript refinement.</p></div></article>
-</section>
+      <h2 class="section-title">
+        Research Projects
+      </h2>
 
-<section id="leadership">
-  <h2 class="section-title">Leadership and Service</h2>
-  <div class="photo-grid"><figure><img src="images/class-leadership.jpg" alt="Class monitor"><figcaption><strong>Class Monitor</strong><br>Class development and academic culture</figcaption></figure><figure><img src="images/qingma-group.jpg" alt="Young Marxist Training Program"><figcaption><strong>Young Marxist Training Group Leader</strong><br>Theoretical study and practical activities</figcaption></figure><figure><img src="images/party-branch.jpg" alt="Party branch"><figcaption><strong>Party Branch Group Leader</strong><br>Branch activities and routine coordination</figcaption></figure></div>
-  <div class="photo-grid"><figure><img src="images/metro-volunteering.jpg" alt="Metro volunteering"><figcaption>Guangzhou Metro volunteer service</figcaption></figure><figure><img src="images/social-practice.png" alt="Social practice"><figcaption>Social practice and team service</figcaption></figure><figure><img src="images/station-volunteering.jpg" alt="Station volunteering"><figcaption>Service-station and campus volunteering</figcaption></figure></div>
-<div class="volunteer-bar">
-  <p><strong>250+ Volunteer Hours</strong> in metro service, campus volunteering, social practice, and community activities.</p>
-</div>
-</section>
 
-<section id="honors">
-  <h2 class="section-title">Honors and Awards</h2>
+      <!-- Project 1 -->
 
-  <div class="award-group">
-    <h3>Academic Honors</h3>
-    <div class="honor-grid honor-grid-with-images">
-      <div class="honor honor-with-image">
-        <img src="images/certificates/scholarship-2023-2024.png" alt="National Encouragement Scholarship 2023–2024 certificate" loading="lazy">
-        <div><strong>National Encouragement Scholarship</strong><small>2023–2024 Academic Year</small></div>
-      </div>
-      <div class="honor honor-with-image">
-        <img src="images/certificates/scholarship-2024-2025.png" alt="National Encouragement Scholarship 2024–2025 certificate" loading="lazy">
-        <div><strong>National Encouragement Scholarship</strong><small>2024–2025 Academic Year</small></div>
-      </div>
-      <div class="honor honor-with-image">
-        <img src="images/certificates/top-ten-student.png" alt="Top Ten Student certificate" loading="lazy">
-        <div><strong>Top Ten Student</strong><small>School of Computer Science and Cyber Engineering</small></div>
-      </div>
-      <div class="honor honor-with-image">
-        <img src="images/certificates/moral-cultivation.png" alt="Advanced Individual in Moral Cultivation certificate" loading="lazy">
-        <div><strong>Advanced Individual in Moral Cultivation</strong><small>Guangzhou University</small></div>
-      </div>
-      <div class="honor honor-with-image">
-        <img src="images/certificates/top-ten-class-committee.png" alt="Top Ten Class Committee Member certificate" loading="lazy">
-        <div><strong>Top Ten Class Committee Member</strong><small>School of Computer Science and Cyber Engineering</small></div>
-      </div>
-      <div class="honor honor-with-image">
-        <img src="images/certificates/outstanding-league-member.png" alt="Outstanding Communist Youth League Member certificate" loading="lazy">
-        <div><strong>Outstanding Communist Youth League Member</strong><small>Guangzhou University · 2023–2024</small></div>
-      </div>
-      <div class="honor honor-with-image">
-        <img src="images/certificates/outstanding-student-2024.png" alt="Outstanding Student 2024 certificate" loading="lazy">
-        <div><strong>Outstanding Student</strong><small>Guangzhou University · 2024</small></div>
-      </div>
-      <div class="honor honor-with-image">
-        <img src="images/certificates/outstanding-student-2025.png" alt="Outstanding Student 2025 certificate" loading="lazy">
-        <div><strong>Outstanding Student</strong><small>Guangzhou University · 2025</small></div>
-      </div>
-      <div class="honor honor-with-image">
-        <img src="images/certificates/outstanding-league-cadre.png" alt="Outstanding Communist Youth League Cadre certificate" loading="lazy">
-        <div><strong>Outstanding Communist Youth League Cadre</strong><small>Guangzhou University · 2024–2025</small></div>
-      </div>
-    </div>
-  </div>
+      <article class="research-item">
 
-  <div class="award-group">
-    <h3>Selected Competition Awards</h3>
-    <div class="honor-grid honor-grid-with-images">
-      <div class="honor honor-with-image">
-        <img src="images/certificates/huashu-international-grand-prize.png" alt="Huashu Cup International Grand Prize certificate" loading="lazy">
-        <div><strong>International Grand Prize</strong><small>4th Huashu Cup International Mathematical Contest in Modeling</small></div>
-      </div>
-      <div class="honor honor-with-image">
-        <img src="images/certificates/electrical-modeling-first-prize.png" alt="Electrical Mathematical Modeling National First Prize certificate" loading="lazy">
-        <div><strong>National First Prize</strong><small>17th National Undergraduate Electrical and Mathematical Modeling Competition</small></div>
-      </div>
-      <div class="honor honor-with-image">
-        <img src="images/certificates/huashu-national-first-prize.png" alt="Huashu Cup National First Prize certificate" loading="lazy">
-        <div><strong>National First Prize</strong><small>6th Huashu Cup National Undergraduate Mathematical Contest in Modeling</small></div>
-      </div>
-      <div class="honor honor-with-image">
-        <img src="images/certificates/apmcm-second-prize.png" alt="APMCM National Second Prize certificate" loading="lazy">
-        <div><strong>National Second Prize</strong><small>Asia-Pacific Mathematical Contest in Modeling</small></div>
-      </div>
-      <div class="honor honor-with-image">
-        <img src="images/certificates/apmcm-third-prize.png" alt="APMCM National Third Prize certificate" loading="lazy">
-        <div><strong>National Third Prize</strong><small>Asia-Pacific Mathematical Contest in Modeling</small></div>
-      </div>
-    </div>
-  </div>
-</section>
-</main>
+        <div>
 
-  <footer>© Junchao Zhang · Static academic homepage</footer>
-<script src="js/main.js"></script>
+          <h3>
+            Blockchain Consensus and Dynamic Membership Management
+          </h3>
+
+
+          <p>
+
+            <strong>
+              Research Member · National Key R&D Program-related Project · Advisor:
+            </strong>
+
+            <a
+              href="https://jsj.gzhu.edu.cn/info/1907/3272.htm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <strong>Teng Huang</strong>
+            </a>
+
+          </p>
+
+
+          <p>
+
+            Research on validator admission, state synchronization, auditable
+            certification, and Byzantine fault tolerance in blockchain systems
+            with dynamic membership.
+
+          </p>
+
+
+          <ul>
+
+            <li>
+              Participated in the design of membership updates, admission
+              control, and synchronization witness mechanisms;
+            </li>
+
+            <li>
+              Investigated traceable validator behavior, forensic evidence
+              generation, and audit verification mechanisms;
+            </li>
+
+            <li>
+              Participated in protocol implementation, formal analysis, and
+              wide-area network experimental evaluation.
+            </li>
+
+          </ul>
+
+        </div>
+
+      </article>
+
+
+      <!-- Project 2 -->
+
+      <article class="research-item">
+
+        <div>
+
+          <h3>
+            Online Ethereum Discv4 Topology Reconstruction
+          </h3>
+
+
+          <p>
+
+            <strong>
+              Project Leader · University-level Undergraduate Innovation Training Project · Advisor:
+            </strong>
+
+            <a
+              href="https://jsj.gzhu.edu.cn/info/1907/3272.htm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <strong>Teng Huang</strong>
+            </a>
+
+          </p>
+
+
+          <p>
+
+            Led research on active Ethereum Discv4 node discovery, online
+            topology reconstruction, graph database storage, and experimental
+            validation.
+
+          </p>
+
+
+          <ul>
+
+            <li>
+              Designed the research plan, system architecture, and data
+              processing workflow;
+            </li>
+
+            <li>
+              Implemented node discovery and topology reconstruction modules;
+            </li>
+
+            <li>
+              Used Neo4j for graph data storage and analysis, and built a
+              private network with Docker for validation and deployment.
+            </li>
+
+          </ul>
+
+        </div>
+
+      </article>
+
+
+      <!-- Project 3 -->
+
+      <article class="research-item">
+
+        <div>
+
+          <h3>
+            Online Ethereum Discv5 Topology Reconstruction
+          </h3>
+
+
+          <p>
+
+            <strong>
+              Core Member · National-level Undergraduate Innovation Training Project · Advisor:
+            </strong>
+
+            <a
+              href="https://jsj.gzhu.edu.cn/info/1907/3272.htm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <strong>Teng Huang</strong>
+            </a>
+
+          </p>
+
+
+          <p>
+
+            Research on encrypted session analysis, packet parsing, protocol
+            measurement, and topology reconstruction for Ethereum Discv5.
+
+          </p>
+
+
+          <ul>
+
+            <li>
+              Analyzed the Discv5 handshake process and session establishment
+              mechanism;
+            </li>
+
+            <li>
+              Investigated ECDH-based key management and encrypted packet
+              structures;
+            </li>
+
+            <li>
+              Used Wireshark and Lua to support packet inspection, parsing, and
+              protocol analysis.
+            </li>
+
+          </ul>
+
+        </div>
+
+      </article>
+
+
+      <!-- Project 4 -->
+
+      <article class="research-item">
+
+        <div>
+
+          <h3>
+            Smart Contract Security and Vulnerability Detection
+          </h3>
+
+
+          <p>
+
+            <strong>
+              First-Author Research Project · Advisor:
+            </strong>
+
+            <a
+              href="https://jsj.gzhu.edu.cn/info/1907/3272.htm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <strong>Teng Huang</strong>
+            </a>
+
+          </p>
+
+
+          <p>
+
+            Investigated vulnerability detection methods based on complex
+            network analysis and heterogeneous graph learning for interactive
+            smart contract scenarios.
+
+          </p>
+
+
+          <ul>
+
+            <li>
+              Modeled cross-contract calls, state dependencies, and interactive
+              execution relationships;
+            </li>
+
+            <li>
+              Designed graph-based vulnerability representations and
+              heterogeneous graph learning modules;
+            </li>
+
+            <li>
+              Achieved detection accuracies of 92.81%–94.87% across three
+              vulnerability detection tasks.
+            </li>
+
+          </ul>
+
+        </div>
+
+      </article>
+
+    </section>
+
+
+    <!-- ======================================================
+         Selected Publications
+    ====================================================== -->
+
+    <section id="publications">
+
+      <h2 class="section-title">
+        Selected Publications
+      </h2>
+
+
+      <!-- Publication 1 -->
+
+      <article class="paper">
+        <div>
+      
+          <h3>
+            <a
+              href="https://www.sciencedirect.com/science/article/pii/S2352152X26031920"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              An Efficient Physics-Informed Continuous-Time Model for Battery State Estimation under Power-Only Runtime Observability
+            </a>
+          </h3>
+      
+          <p class="authors">
+            <strong>Junchao Zhang</strong>,
+            Feng Lian,
+            Yanjie Cai,
+            Shiya Peng,
+            Ying Xie,
+            et al.
+          </p>
+      
+          <p class="venue">
+            Journal of Energy Storage, 2026 · JCR Q1
+          </p>
+      
+        </div>
+      </article>
+
+
+      <!-- Publication 2 -->
+
+      <article class="paper">
+
+        <div>
+
+          <h3>
+            <a
+              href="https://ieeexplore.ieee.org/document/11387622"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              VulCrosser: Smart Contract Vulnerability Detection Based on Complex Network Analysis in Interactive Scenarios
+            </a>
+          </h3>
+
+
+          <p class="authors">
+
+            <strong>
+              Junchao Zhang
+            </strong>,
+
+            Yaohui Zhong,
+            Huanchun Wei,
+            Jiahui Huang,
+            et al.
+
+          </p>
+
+
+          <p class="venue">
+
+            IEEE ICBCTIS, 2025
+
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- Publication 3 -->
+
+      <article class="paper">
+
+        <div>
+
+          <h3>
+            <a
+              href="https://ieeexplore.ieee.org/document/11433893"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Orion: A L2 Solution for Scalable Blockchains under Dynamic Network Conditions
+            </a>  
+          </h3>
+
+
+          <p class="authors">
+
+            Yaohui Zhong,
+
+            <strong>
+              Junchao Zhang
+            </strong>,
+
+            Yanjie Cai,
+            Jiahui Huang,
+            et al.
+
+          </p>
+
+
+          <p class="venue">
+
+            IEEE CIS, 2025
+
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- Publication 4 -->
+
+      <article class="paper">
+
+        <div>
+
+          <h3>
+            <a
+              href="https://ieeexplore.ieee.org/document/11433744"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              PoSitive: An Automated and Dynamically Optimized Simulation Framework for Exploring Incentive Vulnerabilities in Proof-of-Stake Consensus
+            </a>
+          </h3>
+
+
+          <p class="authors">
+
+            Yanjie Cai,
+
+            <strong>
+              Junchao Zhang
+            </strong>,
+
+            Yaohui Zhong,
+            Jiahui Huang,
+            et al.
+
+          </p>
+
+
+          <p class="venue">
+
+            IEEE CIS, 2025
+
+          </p>
+
+        </div>
+
+      </article>
+
+    </section>
+
+
+    <!-- ======================================================
+         Other Experience
+    ====================================================== -->
+
+    <section id="experience">
+
+      <h2 class="section-title">
+        Other Experience
+      </h2>
+
+
+      <article class="feature">
+
+        <img
+          src="../images/seu-visit.jpg"
+          alt="Southeast University"
+        >
+
+        <div>
+
+          <h3>
+            Academic Visit to Southeast University
+          </h3>
+
+          <p>
+
+            Participated in an academic visit to the School of Computer Science
+            and Engineering at Southeast University, which broadened my academic
+            perspective and deepened my understanding of research systems and
+            the practical value of research outcomes.
+
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="feature book">
+
+        <img
+          src="../images/ai-large-model-book.jpg"
+          alt="AI Large Model Development Textbook"
+        >
+
+        <div>
+
+          <h3>
+            Textbook Development: <em>Practical Development of AI Large Models</em>
+          </h3>
+
+          <p>
+
+            Participated as a core member in organizing technical content,
+            developing practical examples, validating demonstrations, and
+            revising and improving the manuscript.
+
+          </p>
+
+        </div>
+
+      </article>
+
+    </section>
+
+
+    <!-- ======================================================
+         Leadership and Volunteering
+    ====================================================== -->
+
+    <section id="leadership">
+
+      <h2 class="section-title">
+        Leadership & Volunteering
+      </h2>
+
+
+      <div class="photo-grid">
+
+        <figure>
+
+          <img
+            src="../images/class-leadership.jpg"
+            alt="Class Monitor"
+          >
+
+          <figcaption>
+
+            <strong>
+              Class Monitor
+            </strong>
+
+            <br>
+
+            Class Development & Academic Culture
+
+          </figcaption>
+
+        </figure>
+
+
+        <figure>
+
+          <img
+            src="../images/qingma-group.jpg"
+            alt="Young Marxists Training Program"
+          >
+
+          <figcaption>
+
+            <strong>
+              Group Leader, Young Marxists Training Program
+            </strong>
+
+            <br>
+
+            Theoretical Study & Practical Activities
+
+          </figcaption>
+
+        </figure>
+
+
+        <figure>
+
+          <img
+            src="../images/party-branch.jpg"
+            alt="Student Party Branch"
+          >
+
+          <figcaption>
+
+            <strong>
+              Party Group Leader, Student Party Branch
+            </strong>
+
+            <br>
+
+            Branch Activities & Organizational Coordination
+
+          </figcaption>
+
+        </figure>
+
+      </div>
+
+
+      <div class="photo-grid">
+
+        <figure>
+
+          <img
+            src="../images/metro-volunteering.jpg"
+            alt="Guangzhou Metro Volunteering"
+          >
+
+          <figcaption>
+            Guangzhou Metro Volunteering
+          </figcaption>
+
+        </figure>
+
+
+        <figure>
+
+          <img
+            src="../images/social-practice.png"
+            alt="Social Practice"
+          >
+
+          <figcaption>
+            Social Practice & Team Service
+          </figcaption>
+
+        </figure>
+
+
+        <figure>
+
+          <img
+            src="../images/station-volunteering.jpg"
+            alt="Volunteer Service Station"
+          >
+
+          <figcaption>
+            Community & Campus Volunteering
+          </figcaption>
+
+        </figure>
+
+      </div>
+
+
+      <div class="volunteer-bar">
+
+        <p>
+
+          <strong>
+            Over 250 Hours of Volunteer Service
+          </strong>
+
+          , including metro service, campus volunteering, social practice,
+          and community service activities.
+
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================================
+         Honors and Awards
+    ====================================================== -->
+
+    <section id="honors">
+
+      <h2 class="section-title">
+        Honors & Awards
+      </h2>
+
+
+      <!-- ==================================================
+           Academic and Comprehensive Honors
+      =================================================== -->
+
+      <div class="award-group">
+
+        <h3>
+          Academic & Comprehensive Honors
+        </h3>
+
+
+        <div class="honor-grid honor-grid-with-images">
+
+
+          <div class="honor honor-with-image">
+
+            <img
+              src="../images/certificates/scholarship-2023-2024.png"
+              alt="2023–2024 National Encouragement Scholarship Certificate"
+              loading="lazy"
+            >
+
+            <div>
+
+              <strong>
+                National Encouragement Scholarship
+              </strong>
+
+              <small>
+                2023–2024 Academic Year
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div class="honor honor-with-image">
+
+            <img
+              src="../images/certificates/scholarship-2024-2025.png"
+              alt="2024–2025 National Encouragement Scholarship Certificate"
+              loading="lazy"
+            >
+
+            <div>
+
+              <strong>
+                National Encouragement Scholarship
+              </strong>
+
+              <small>
+                2024–2025 Academic Year
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div class="honor honor-with-image">
+
+            <img
+              src="../images/certificates/top-ten-student.png"
+              alt="Top Ten Student Certificate"
+              loading="lazy"
+            >
+
+            <div>
+
+              <strong>
+                Top Ten Student
+              </strong>
+
+              <small>
+                School of Computer Science and Cyber Engineering
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div class="honor honor-with-image">
+
+            <img
+              src="../images/certificates/moral-cultivation.png"
+              alt="Outstanding Individual in Moral Cultivation Certificate"
+              loading="lazy"
+            >
+
+            <div>
+
+              <strong>
+                Outstanding Individual in Moral Cultivation
+              </strong>
+
+              <small>
+                Guangzhou University
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div class="honor honor-with-image">
+
+            <img
+              src="../images/certificates/top-ten-class-committee.png"
+              alt="Top Ten Class Committee Member Certificate"
+              loading="lazy"
+            >
+
+            <div>
+
+              <strong>
+                Top Ten Class Committee Member
+              </strong>
+
+              <small>
+                School of Computer Science and Cyber Engineering
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div class="honor honor-with-image">
+
+            <img
+              src="../images/certificates/outstanding-league-member.png"
+              alt="Outstanding Communist Youth League Member Certificate"
+              loading="lazy"
+            >
+
+            <div>
+
+              <strong>
+                Outstanding Communist Youth League Member
+              </strong>
+
+              <small>
+                Guangzhou University · 2023–2024
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div class="honor honor-with-image">
+
+            <img
+              src="../images/certificates/outstanding-student-2024.png"
+              alt="2024 Outstanding Student Certificate"
+              loading="lazy"
+            >
+
+            <div>
+
+              <strong>
+                Outstanding Student
+              </strong>
+
+              <small>
+                Guangzhou University · 2024
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div class="honor honor-with-image">
+
+            <img
+              src="../images/certificates/outstanding-student-2025.png"
+              alt="2025 Outstanding Student Certificate"
+              loading="lazy"
+            >
+
+            <div>
+
+              <strong>
+                Outstanding Student
+              </strong>
+
+              <small>
+                Guangzhou University · 2025
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div class="honor honor-with-image">
+
+            <img
+              src="../images/certificates/outstanding-league-cadre.png"
+              alt="Outstanding Communist Youth League Cadre Certificate"
+              loading="lazy"
+            >
+
+            <div>
+
+              <strong>
+                Outstanding Communist Youth League Cadre
+              </strong>
+
+              <small>
+                Guangzhou University · 2024–2025
+              </small>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ==================================================
+           Selected Competition Awards
+      =================================================== -->
+
+      <div class="award-group">
+
+        <h3>
+          Selected Competition Awards
+        </h3>
+
+
+        <div class="honor-grid honor-grid-with-images">
+
+
+          <div class="honor honor-with-image">
+
+            <img
+              src="../images/certificates/huashu-international-grand-prize.png"
+              alt="Fourth Huashu Cup International Mathematical Contest in Modeling Grand Prize Certificate"
+              loading="lazy"
+            >
+
+            <div>
+
+              <strong>
+                International Grand Prize
+              </strong>
+
+              <small>
+                Fourth Huashu Cup International Mathematical Contest in Modeling
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div class="honor honor-with-image">
+
+            <img
+              src="../images/certificates/electrical-modeling-first-prize.png"
+              alt="National Undergraduate Electrical Mathematical Modeling Competition First Prize Certificate"
+              loading="lazy"
+            >
+
+            <div>
+
+              <strong>
+                National First Prize
+              </strong>
+
+              <small>
+                17th National Undergraduate Electrical Mathematical Modeling Competition
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div class="honor honor-with-image">
+
+            <img
+              src="../images/certificates/huashu-national-first-prize.png"
+              alt="Huashu Cup National Mathematical Contest in Modeling First Prize Certificate"
+              loading="lazy"
+            >
+
+            <div>
+
+              <strong>
+                National First Prize
+              </strong>
+
+              <small>
+                Sixth Huashu Cup National Mathematical Contest in Modeling
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div class="honor honor-with-image">
+
+            <img
+              src="../images/certificates/apmcm-second-prize.png"
+              alt="Asia-Pacific Mathematical Contest in Modeling Second Prize Certificate"
+              loading="lazy"
+            >
+
+            <div>
+
+              <strong>
+                National Second Prize
+              </strong>
+
+              <small>
+                Asia-Pacific Mathematical Contest in Modeling
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div class="honor honor-with-image">
+
+            <img
+              src="../images/certificates/apmcm-third-prize.png"
+              alt="Asia-Pacific Mathematical Contest in Modeling Third Prize Certificate"
+              loading="lazy"
+            >
+
+            <div>
+
+              <strong>
+                National Third Prize
+              </strong>
+
+              <small>
+                Asia-Pacific Mathematical Contest in Modeling
+              </small>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ======================================================
+       Footer
+  ====================================================== -->
+
+  <footer>
+    © Junchao Zhang · Academic Homepage
+  </footer>
+
+
+  <!-- ======================================================
+       Shared JavaScript
+  ====================================================== -->
+
+  <script src="../js/main.js"></script>
+
+
+  <!-- ======================================================
+       News Expand / Collapse
+  ====================================================== -->
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const list = document.getElementById("news-list");
       const button = document.getElementById("news-toggle-btn");
-      if (!list || !button) return;
 
-      const extraItems = Array.from(list.querySelectorAll(".news-item")).slice(6);
-
-      if (extraItems.length === 0) {
-        button.hidden = true;
+      if (!list || !button) {
         return;
       }
 
-      function render(expanded) {
-        extraItems.forEach(function (item) {
-          item.hidden = !expanded;
-          item.classList.toggle("news-hidden", !expanded);
-        });
+      const items = list.querySelectorAll(".news-item");
 
-        button.setAttribute("aria-expanded", expanded ? "true" : "false");
-        button.textContent = expanded ? "Show less ▴" : "Show more ▾";
+      /*
+        If there are six or fewer news items,
+        the "Show More" button is unnecessary.
+      */
+      if (items.length <= 6) {
+        button.style.display = "none";
+        return;
       }
 
-      render(false);
-
+      /*
+        Initial state:
+        the list does not have the expanded class,
+        so CSS automatically hides all items after the sixth.
+      */
       button.addEventListener("click", function () {
-        const expanded = button.getAttribute("aria-expanded") === "true";
-        render(!expanded);
+        const expanded = list.classList.toggle("expanded");
+
+        button.setAttribute(
+          "aria-expanded",
+          expanded ? "true" : "false"
+        );
+
+        button.textContent =
+          expanded
+            ? "Show Less ▴"
+            : "Show More ▾";
       });
     });
   </script>
 
 </body>
 </html>
+```
