@@ -1,22 +1,13 @@
 ```html
 <!doctype html>
 <html lang="zh-CN">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <meta
-    name="description"
-    content="张俊超 — 区块链系统 · 分布式系统 · 网络测量与安全"
-  >
-
+  <meta name="description" content="张俊超 — 区块链系统 · 分布式系统 · 网络测量与安全">
   <title>张俊超</title>
 
-  <link
-    rel="stylesheet"
-    href="../css/style.css"
-  >
+  <link rel="stylesheet" href="../css/style.css">
 
   <style>
     /* ======================================================
@@ -40,7 +31,6 @@
       grid-template-columns: 88px minmax(0, 1fr);
       gap: 18px;
       align-items: start;
-
       padding: 7px 10px;
       border-radius: 6px;
     }
@@ -49,12 +39,27 @@
       background: rgba(127, 127, 127, 0.035);
     }
 
+    /*
+      默认只显示前 6 条新闻。
+      第 7 条及以后全部隐藏。
+    */
+    .news-list .news-item:nth-child(n + 7) {
+      display: none;
+    }
+
+    /*
+      点击“展开更多”后，
+      JS 会给 news-list 添加 expanded 类，
+      此时显示全部新闻。
+    */
+    .news-list.expanded .news-item {
+      display: grid;
+    }
+
     .news-date {
       display: inline-block;
       width: fit-content;
-
       padding: 2px 8px;
-
       border: 1px solid var(--border, #d9d5cf);
       border-radius: 4px;
 
@@ -68,7 +73,6 @@
 
       font-size: 0.88rem;
       line-height: 1.35;
-
       white-space: nowrap;
     }
 
@@ -78,14 +82,9 @@
       text-justify: inter-word;
     }
 
-    .news-hidden {
-      display: none;
-    }
-
     .news-toggle {
       display: block;
       width: 100%;
-
       margin-top: 10px;
       padding: 11px 0 6px;
 
@@ -94,7 +93,6 @@
 
       background: transparent;
       color: inherit;
-
       font: inherit;
 
       cursor: pointer;
@@ -114,9 +112,10 @@
     }
   </style>
 
+
   <style>
     /* ======================================================
-       分隔线
+       分隔
     ====================================================== */
 
     .unseen-section-divider {
@@ -124,6 +123,7 @@
       margin: 0;
     }
   </style>
+
 
   <style>
     /* ======================================================
@@ -139,10 +139,8 @@
     .edu-item {
       display: grid;
       grid-template-columns: 120px 190px minmax(0, 1fr);
-
       gap: 24px;
       align-items: center;
-
       padding: 18px 0;
     }
 
@@ -156,7 +154,6 @@
       width: 180px;
       height: auto;
       max-height: 90px;
-
       object-fit: contain;
       justify-self: center;
     }
@@ -185,7 +182,6 @@
       .edu-logo {
         width: 150px;
         max-height: 76px;
-
         grid-column: 2;
         justify-self: start;
       }
@@ -196,9 +192,10 @@
     }
   </style>
 
+
   <style>
     /* ======================================================
-       首页
+       首页简介
     ====================================================== */
 
     .hero-subtitle {
@@ -210,17 +207,14 @@
     .profile-highlights {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-
       gap: 10px;
       margin: 18px 0;
     }
 
     .profile-highlights span {
       padding: 10px 12px;
-
       border: 1px solid var(--border, #d9d5cf);
       border-radius: 8px;
-
       text-align: center;
       line-height: 1.35;
     }
@@ -237,9 +231,10 @@
     }
   </style>
 
+
   <style>
     /* ======================================================
-       科研项目与论文
+       科研项目
     ====================================================== */
 
     #research .research-item {
@@ -255,6 +250,13 @@
       text-align: justify;
       text-justify: inter-word;
     }
+  </style>
+
+
+  <style>
+    /* ======================================================
+       论文
+    ====================================================== */
 
     #publications .paper {
       display: block;
@@ -279,6 +281,7 @@
     }
   </style>
 
+
   <style>
     /* ======================================================
        其他经历
@@ -291,6 +294,7 @@
       text-justify: inter-word;
     }
   </style>
+
 
   <style>
     /* ======================================================
@@ -305,7 +309,6 @@
 
     .volunteer-bar {
       width: 100%;
-
       margin-top: 18px;
       padding: 14px 18px;
 
@@ -322,6 +325,7 @@
       line-height: 1.6;
     }
   </style>
+
 
   <style>
     /* ======================================================
@@ -347,7 +351,6 @@
 
     .honor-with-image img {
       display: block;
-
       width: 100%;
       height: 190px;
 
@@ -365,7 +368,6 @@
     .honor-with-image strong,
     .honor-with-image small {
       display: block;
-
       text-align: justify;
       text-justify: inter-word;
     }
@@ -390,68 +392,41 @@
 
     <div class="nav-inner">
 
-      <a
-        class="brand"
-        href="./"
-      >
+      <a class="brand" href="./">
         张俊超
       </a>
 
       <div class="nav-links">
 
-        <a
-          class="section-link"
-          href="#about"
-        >
+        <a class="section-link" href="#about">
           主页
         </a>
 
-        <a
-          class="section-link"
-          href="#news"
-        >
+        <a class="section-link" href="#news">
           动态
         </a>
 
-        <a
-          class="section-link"
-          href="#education"
-        >
+        <a class="section-link" href="#education">
           教育经历
         </a>
 
-        <a
-          class="section-link"
-          href="#research"
-        >
+        <a class="section-link" href="#research">
           科研
         </a>
 
-        <a
-          class="section-link"
-          href="#publications"
-        >
+        <a class="section-link" href="#publications">
           论文
         </a>
 
-        <a
-          class="section-link"
-          href="#leadership"
-        >
+        <a class="section-link" href="#leadership">
           服务
         </a>
 
-        <a
-          class="section-link"
-          href="#honors"
-        >
+        <a class="section-link" href="#honors">
           荣誉
         </a>
 
-        <a
-          class="tool-button"
-          href="../"
-        >
+        <a class="tool-button" href="../">
           English
         </a>
 
@@ -465,6 +440,7 @@
         </button>
 
       </div>
+
     </div>
 
   </nav>
@@ -473,13 +449,10 @@
   <main>
 
     <!-- ======================================================
-         个人简介
+         首页
     ====================================================== -->
 
-    <section
-      id="about"
-      class="hero"
-    >
+    <section id="about" class="hero">
 
       <h1>
         张俊超
@@ -488,6 +461,7 @@
       <p class="hero-subtitle">
         广州大学网络工程专业本科生
       </p>
+
 
       <div class="hero-tags">
 
@@ -514,6 +488,7 @@
           alt="张俊超"
         >
 
+
         <div class="intro-text">
 
           <p>
@@ -527,6 +502,7 @@
             学业成绩排名
             <strong>2/81</strong>。
           </p>
+
 
           <p>
             我从本科一年级开始参与科研工作。
@@ -614,6 +590,8 @@
           id="news-list"
         >
 
+          <!-- 1 -->
+
           <li class="news-item">
 
             <span class="news-date">
@@ -639,6 +617,8 @@
           </li>
 
 
+          <!-- 2 -->
+
           <li class="news-item">
 
             <span class="news-date">
@@ -657,6 +637,8 @@
 
           </li>
 
+
+          <!-- 3 -->
 
           <li class="news-item">
 
@@ -677,6 +659,8 @@
           </li>
 
 
+          <!-- 4 -->
+
           <li class="news-item">
 
             <span class="news-date">
@@ -692,6 +676,8 @@
 
           </li>
 
+
+          <!-- 5 -->
 
           <li class="news-item">
 
@@ -712,6 +698,8 @@
           </li>
 
 
+          <!-- 6 -->
+
           <li class="news-item">
 
             <span class="news-date">
@@ -731,7 +719,14 @@
           </li>
 
 
-          <li class="news-item news-hidden">
+          <!-- =================================================
+               第 7 条起，默认由 CSS 自动隐藏
+          ================================================== -->
+
+
+          <!-- 7 -->
+
+          <li class="news-item">
 
             <span class="news-date">
               12/2025
@@ -750,20 +745,26 @@
           </li>
 
 
-          <li class="news-item news-hidden">
+          <!-- 8 -->
+
+          <li class="news-item">
 
             <span class="news-date">
               12/2025
             </span>
 
             <span class="news-content">
+
               获得 2024–2025 学年国家励志奖学金。
+
             </span>
 
           </li>
 
 
-          <li class="news-item news-hidden">
+          <!-- 9 -->
+
+          <li class="news-item">
 
             <span class="news-date">
               11/2025
@@ -779,7 +780,9 @@
           </li>
 
 
-          <li class="news-item news-hidden">
+          <!-- 10 -->
+
+          <li class="news-item">
 
             <span class="news-date">
               08/2025
@@ -795,7 +798,9 @@
           </li>
 
 
-          <li class="news-item news-hidden">
+          <!-- 11 -->
+
+          <li class="news-item">
 
             <span class="news-date">
               07/2025
@@ -811,7 +816,9 @@
           </li>
 
 
-          <li class="news-item news-hidden">
+          <!-- 12 -->
+
+          <li class="news-item">
 
             <span class="news-date">
               07/2025
@@ -827,7 +834,9 @@
           </li>
 
 
-          <li class="news-item news-hidden">
+          <!-- 13 -->
+
+          <li class="news-item">
 
             <span class="news-date">
               07/2025
@@ -842,7 +851,9 @@
           </li>
 
 
-          <li class="news-item news-hidden">
+          <!-- 14 -->
+
+          <li class="news-item">
 
             <span class="news-date">
               03/2025
@@ -858,7 +869,9 @@
           </li>
 
 
-          <li class="news-item news-hidden">
+          <!-- 15 -->
+
+          <li class="news-item">
 
             <span class="news-date">
               03/2025
@@ -874,7 +887,9 @@
           </li>
 
 
-          <li class="news-item news-hidden">
+          <!-- 16 -->
+
+          <li class="news-item">
 
             <span class="news-date">
               12/2024
@@ -889,7 +904,9 @@
           </li>
 
 
-          <li class="news-item news-hidden">
+          <!-- 17 -->
+
+          <li class="news-item">
 
             <span class="news-date">
               05/2024
@@ -1024,6 +1041,8 @@
       </h2>
 
 
+      <!-- 项目 1 -->
+
       <article class="research-item">
 
         <div>
@@ -1078,6 +1097,8 @@
 
       </article>
 
+
+      <!-- 项目 2 -->
 
       <article class="research-item">
 
@@ -1135,6 +1156,8 @@
       </article>
 
 
+      <!-- 项目 3 -->
+
       <article class="research-item">
 
         <div>
@@ -1190,6 +1213,8 @@
 
       </article>
 
+
+      <!-- 项目 4 -->
 
       <article class="research-item">
 
@@ -1260,6 +1285,8 @@
       </h2>
 
 
+      <!-- 论文 1 -->
+
       <article class="paper">
 
         <div>
@@ -1271,7 +1298,10 @@
 
           <p class="authors">
 
-            <strong>Junchao Zhang</strong>,
+            <strong>
+              Junchao Zhang
+            </strong>,
+
             Feng Lian,
             Yanjie Cai,
             Shiya Peng,
@@ -1282,13 +1312,17 @@
 
 
           <p class="venue">
+
             Journal of Energy Storage, 2026 · JCR Q1
+
           </p>
 
 
           <p class="paper-role">
 
-            <strong>贡献：</strong>
+            <strong>
+              贡献：
+            </strong>
 
             第一作者 ·
             推导基于电荷守恒的常微分方程模型，
@@ -1315,6 +1349,8 @@
       </article>
 
 
+      <!-- 论文 2 -->
+
       <article class="paper">
 
         <div>
@@ -1326,7 +1362,10 @@
 
           <p class="authors">
 
-            <strong>Junchao Zhang</strong>,
+            <strong>
+              Junchao Zhang
+            </strong>,
+
             Yaohui Zhong,
             Huanchun Wei,
             Jiahui Huang,
@@ -1336,13 +1375,17 @@
 
 
           <p class="venue">
+
             IEEE ICBCTIS, 2025
+
           </p>
 
 
           <p class="paper-role">
 
-            <strong>贡献：</strong>
+            <strong>
+              贡献：
+            </strong>
 
             第一作者 ·
             建模跨合约依赖关系，
@@ -1369,6 +1412,8 @@
       </article>
 
 
+      <!-- 论文 3 -->
+
       <article class="paper">
 
         <div>
@@ -1381,7 +1426,11 @@
           <p class="authors">
 
             Yaohui Zhong,
-            <strong>Junchao Zhang</strong>,
+
+            <strong>
+              Junchao Zhang
+            </strong>,
+
             Yanjie Cai,
             Jiahui Huang,
             et al.
@@ -1390,13 +1439,17 @@
 
 
           <p class="venue">
+
             IEEE CIS, 2025
+
           </p>
 
 
           <p class="paper-role">
 
-            <strong>贡献：</strong>
+            <strong>
+              贡献：
+            </strong>
 
             第二作者 ·
             参与网络模型设计、协议实现以及基于
@@ -1423,6 +1476,8 @@
       </article>
 
 
+      <!-- 论文 4 -->
+
       <article class="paper">
 
         <div>
@@ -1435,7 +1490,11 @@
           <p class="authors">
 
             Yanjie Cai,
-            <strong>Junchao Zhang</strong>,
+
+            <strong>
+              Junchao Zhang
+            </strong>,
+
             Yaohui Zhong,
             Jiahui Huang,
             et al.
@@ -1444,13 +1503,17 @@
 
 
           <p class="venue">
+
             IEEE CIS, 2025
+
           </p>
 
 
           <p class="paper-role">
 
-            <strong>贡献：</strong>
+            <strong>
+              贡献：
+            </strong>
 
             第二作者 ·
             参与攻击场景建模，
@@ -1477,6 +1540,8 @@
       </article>
 
 
+      <!-- 论文 5 -->
+
       <article class="paper">
 
         <div>
@@ -1487,18 +1552,28 @@
 
 
           <p class="authors">
-            <strong>Junchao Zhang</strong>, et al.
+
+            <strong>
+              Junchao Zhang
+            </strong>,
+
+            et al.
+
           </p>
 
 
           <p class="venue">
+
             Blockchain: Research and Applications · 大修
+
           </p>
 
 
           <p class="paper-role">
 
-            <strong>状态：</strong>
+            <strong>
+              状态：
+            </strong>
 
             修回中 · 第一作者论文
 
@@ -1508,6 +1583,8 @@
 
       </article>
 
+
+      <!-- 论文 6 -->
 
       <article class="paper">
 
@@ -1519,18 +1596,28 @@
 
 
           <p class="authors">
-            <strong>Junchao Zhang</strong>, et al.
+
+            <strong>
+              Junchao Zhang
+            </strong>,
+
+            et al.
+
           </p>
 
 
           <p class="venue">
+
             IEEE Transactions on Information Forensics and Security · 审稿中
+
           </p>
 
 
           <p class="paper-role">
 
-            <strong>状态：</strong>
+            <strong>
+              状态：
+            </strong>
 
             审稿中 · 学生第一作者
 
@@ -1561,13 +1648,11 @@
           alt="东南大学"
         >
 
-
         <div>
 
           <h3>
             东南大学访学经历
           </h3>
-
 
           <p>
 
@@ -1589,13 +1674,11 @@
           alt="人工智能大模型教材"
         >
 
-
         <div>
 
           <h3>
             教材编写：《AI大模型开发实战》
           </h3>
-
 
           <p>
 
@@ -1767,7 +1850,9 @@
       </h2>
 
 
-      <!-- 综合与学业荣誉 -->
+      <!-- ==================================================
+           综合与学业荣誉
+      =================================================== -->
 
       <div class="award-group">
 
@@ -1990,7 +2075,9 @@
       </div>
 
 
-      <!-- 代表性竞赛获奖 -->
+      <!-- ==================================================
+           代表性竞赛获奖
+      =================================================== -->
 
       <div class="award-group">
 
@@ -2135,7 +2222,7 @@
 
 
   <!-- ======================================================
-       公共脚本
+       公共 JS
   ====================================================== -->
 
   <script src="../js/main.js"></script>
@@ -2146,97 +2233,46 @@
   ====================================================== -->
 
   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const list = document.getElementById("news-list");
+      const button = document.getElementById("news-toggle-btn");
 
-    document.addEventListener(
-      "DOMContentLoaded",
-      function () {
+      if (!list || !button) {
+        return;
+      }
 
-        const list =
-          document.getElementById("news-list");
+      const items = list.querySelectorAll(".news-item");
 
-        const button =
-          document.getElementById("news-toggle-btn");
+      /*
+        新闻只有 6 条或更少时，
+        不需要显示“展开更多”按钮。
+      */
+      if (items.length <= 6) {
+        button.style.display = "none";
+        return;
+      }
 
+      /*
+        初始状态：
+        list 没有 expanded 类，
+        因此 CSS 自动隐藏第 7 条之后的新闻。
+      */
+      button.addEventListener("click", function () {
+        const expanded = list.classList.toggle("expanded");
 
-        if (!list || !button) {
-          return;
-        }
-
-
-        const items =
-          Array.from(
-            list.querySelectorAll(".news-item")
-          );
-
-
-        const visibleCount = 6;
-
-
-        if (items.length <= visibleCount) {
-
-          button.style.display = "none";
-
-          return;
-
-        }
-
-
-        let expanded = false;
-
-
-        function updateNews() {
-
-          items.forEach(
-            function (item, index) {
-
-              if (index >= visibleCount) {
-
-                item.classList.toggle(
-                  "news-hidden",
-                  !expanded
-                );
-
-              }
-
-            }
-          );
-
-
-          button.setAttribute(
-            "aria-expanded",
-            expanded ? "true" : "false"
-          );
-
-
-          button.textContent =
-            expanded
-              ? "收起内容 ▴"
-              : "展开更多 ▾";
-
-        }
-
-
-        button.addEventListener(
-          "click",
-          function () {
-
-            expanded = !expanded;
-
-            updateNews();
-
-          }
+        button.setAttribute(
+          "aria-expanded",
+          expanded ? "true" : "false"
         );
 
-
-        updateNews();
-
-      }
-    );
-
+        button.textContent =
+          expanded
+            ? "收起内容 ▴"
+            : "展开更多 ▾";
+      });
+    });
   </script>
 
-
 </body>
-
 </html>
 ```
